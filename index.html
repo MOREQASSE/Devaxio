@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com/recaptcha/; img-src 'self' data: https://i.ibb.co https://*.ibb.co https://www.google.com/recaptcha/; font-src 'self' https: data:; connect-src 'self' https://formspree.io https://www.google.com/recaptcha/; form-action 'self' https://formspree.io; frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; object-src 'none'; base-uri 'self';">
+    <title>Devaxio | Web Development & Digital Marketing Agency</title>
+    <meta name="description" content="Devaxio - Your trusted partner for web development, digital marketing, and business growth solutions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-btn {
+            background-color: var(--color-link-primary);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--color-link-hover);
+        }
+
+        /* Color Variables updated */
+        :root {
+            --color-bg-primary: #ffffff;
+            --color-bg-secondary: #f9fafb;
+            --color-text-primary: #111827;
+            --color-text-secondary: #4b5563;
+            --color-border-primary: #e5e7eb;
+            --color-link-primary: #3b82f6;
+            --color-shadow-primary: rgba(0, 0, 0, 0.1);
+            --color-card-bg: #ffffff;
+            --color-link-hover: #2563eb; /* darker blue for light mode */
+            --color-text-hover: #e5e7eb; /* light gray for dark mode hover */
+            --color-link-hover: #adb516; /* GOLDEN */
+        }
+
+        .dark {
+            --color-bg-primary: #111827;
+            --color-bg-secondary: #1f2937;
+            --color-text-primary: #f9fafb;
+            --color-text-secondary: #d1d5db;
+            --color-border-primary: #374151;
+            --color-link-primary: #60a5fa;
+            --color-shadow-primary: rgba(0, 0, 0, 0.3);
+            --color-card-bg: #1f2937;
+            --color-link-hover: #93c5fd; /* lighter blue for dark mode */
+            --color-text-hover: #1f2937; /* dark gray for light mode hover */
+            --color-link-hover: #adb516; /* GOLDEN */
+        }
+
+        /* Base Styles */
+        body {
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            color: var(--color-text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-link-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-link-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--color-card-bg);
+            border-color: var(--color-border-primary);
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--color-card-bg);
+            border-color: var(--color-border-primary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px var(--color-shadow-primary), 0 4px 6px -2px var(--color-shadow-primary);
+        }
+        /* Project link styles */
+        .project-link {
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+
+        .project-link-primary {
+            color: var(--color-link-primary);
+        }
+
+        .project-link-primary:hover {
+            color: white;
+            background-color: var(--color-link-primary);
+        }
+
+        .project-link-secondary {
+            color: var(--color-text-secondary);
+        }
+
+        .project-link-secondary:hover {
+            color: var(--color-text-hover);
+            background-color: var(--color-text-secondary);
+        }
+        /* Skills */
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Form Elements */
+        .form-input {
+            background-color: var(--color-bg-secondary);
+            border-color: var(--color-border-primary);
+            color: var(--color-text-primary);
+        }
+
+        .form-input:focus {
+            border-color: var(--color-link-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Header */
+        .header-bg {
+            background-color: rgba(249, 250, 251, 0.9);
+        }
+
+        .dark .header-bg {
+            background-color: rgba(31, 41, 55, 0.8);
+        }
+
+        /* Section backgrounds */
+        .section-primary {
+            background-color: var(--color-bg-primary);
+        }
+
+        /* Tech Stack Filter Buttons */
+        .filter-btn {
+            background-color: var(--color-border-primary);
+            color: var(--color-text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: var(--color-link-primary);
+            color: white;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .section-secondary {
+            background-color: var(--color-bg-secondary);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full header-bg backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold">
+                <img src="./images/Devaxio2D.png" alt="Devaxio Logo" class="h-16 w-auto">
+              </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#process" class="nav-link">Our Process</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon dark:hidden" style="color: var(--color-text-primary);"></i>
+                    <i class="fas fa-sun hidden dark:block" style="color: var(--color-text-primary);"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars" style="color: var(--color-text-primary);"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden py-2 px-4 shadow-md" style="background-color: var(--color-card-bg); border-bottom: 1px solid var(--color-border-primary);">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link py-1">Home</a>
+                <a href="#services" class="nav-link py-1">Services</a>
+                <a href="#about" class="nav-link py-1">About Us</a>
+                <a href="#portfolio" class="nav-link py-1">Portfolio</a>
+                <a href="#process" class="nav-link py-1">Our Process</a>
+                <a href="#contact" class="nav-link py-1">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 section-primary">
+        <div class="container mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Dev<span style="color: var(--color-link-primary);">axio</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6" style="color: var(--color-text-secondary);">Web Development & Digital Marketing Agency</h2>
+                <p class="text-lg mb-8 max-w-lg" style="color: var(--color-text-secondary);">
+                    We build stunning websites and craft powerful digital marketing strategies to help your business thrive online.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 rounded-lg font-medium contact-btn">
+                        Get Started
+                     </a>
+                     <a href="#portfolio" 
+                     class="px-6 py-3 rounded-lg font-medium transition-all duration-300 border hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:border-transparent hover:text-blue-600 dark:hover:text-blue-300 hover:shadow-sm" 
+                     style="border-color: var(--color-link-primary); color: var(--color-link-primary);">
+                     View Portfolio
+                  </a>
+                </div>
+                <div class="mt-8 flex space-x-4">
+                    <a href="mailto:contact@devaxio.com" style="color: var(--color-text-secondary);">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/devaxio" target="_blank" style="color: var(--color-text-secondary);">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/1234567890" rel="noopener noreferrer" target="_blank" style="color: var(--color-text-secondary);">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-0 shadow-xl" style="border-color: var(--color-link-primary);">
+                    <img src="./images/Devaxio.png" 
+                         alt="Devaxio Logo" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 section-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our <span style="color: var(--color-link-primary);">Services</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Web Development -->
+                <div class="p-8 rounded-xl shadow-md card hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: rgba(59, 130, 246, 0.1);">
+                        <i class="fas fa-code text-2xl" style="color: var(--color-link-primary);"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Web Development</h3>
+                    <p class="text-center" style="color: var(--color-text-secondary);">
+                        Custom websites, e-commerce solutions, web applications, and CMS development tailored to your business needs.
+                    </p>
+                </div>
+                
+                <!-- Digital Marketing -->
+                <div class="p-8 rounded-xl shadow-md card hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: rgba(59, 130, 246, 0.1);">
+                        <i class="fas fa-bullseye text-2xl" style="color: var(--color-link-primary);"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Digital Marketing</h3>
+                    <p class="text-center" style="color: var(--color-text-secondary);">
+                        SEO, PPC, social media marketing, and content strategies to grow your online presence.
+                    </p>
+                </div>
+                
+                <!-- UI/UX Design -->
+                <div class="p-8 rounded-xl shadow-md card hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: rgba(59, 130, 246, 0.1);">
+                        <i class="fas fa-paint-brush text-2xl" style="color: var(--color-link-primary);"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">UI/UX Design</h3>
+                    <p class="text-center" style="color: var(--color-text-secondary);">
+                        Beautiful, intuitive interfaces that enhance user experience and drive conversions.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="px-6 py-3 rounded-lg font-medium contact-btn">
+                    Get a Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- About Us Section -->
+    <section id="about" class="py-20 section-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About <span style="color: var(--color-link-primary);">Us</span></h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-44 h-44 rounded-none overflow-hidden border-0 shadow-lg" style="border-color: var(--color-link-primary);">
+                        <img src="./images/Devaxio2D.png" 
+                             alt="Devaxio Team" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Who We Are</h3>
+                    <p class="mb-6 text-lg" style="color: var(--color-text-secondary);">
+                        Devaxio is a full-service digital agency specializing in web development and digital marketing. Founded in 2023, we've helped businesses of all sizes establish and grow their online presence.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="p-6 rounded-lg shadow-md card">
+                            <div class="flex items-center mb-3">
+                                <div class="p-2 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-laptop-code" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <h4 class="font-semibold">Our Mission</h4>
+                            </div>
+                            <p style="color: var(--color-text-secondary);">
+                                To deliver innovative digital solutions that drive measurable business growth for our clients.
+                            </p>
+                        </div>
+                        <div class="p-6 rounded-lg shadow-md card">
+                            <div class="flex items-center mb-3">
+                                <div class="p-2 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-bullseye" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <h4 class="font-semibold">Our Approach</h4>
+                            </div>
+                            <p style="color: var(--color-text-secondary);">
+                                Data-driven strategies combined with cutting-edge technology and creative design.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="inline-flex items-center font-medium px-3 py-1 rounded-md transition-colors duration-200 hover:bg-opacity-10 hover:bg-blue-500" style="color: var(--color-link-primary);">
+                            View Our Work <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our Process Section -->
+    <section id="process" class="py-20 section-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our <span style="color: var(--color-link-primary);">Process</span></h2>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2" style="background-color: var(--color-border-primary);"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8 md:space-y-16">
+                    <!-- Item 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:odd:flex-row-reverse timeline-item">
+                        <div class="md:w-1/2 md:px-8 mb-4 md:mb-0">
+                            <div class="p-6 rounded-lg shadow-md card">
+                                <h3 class="text-xl font-semibold mb-2">Discovery & Strategy</h3>
+                                <p style="color: var(--color-text-secondary);" class="mb-2">
+                                    We begin by understanding your business goals, target audience, and technical requirements.
+                                </p>
+                                <p style="color: var(--color-text-secondary);">
+                                    Deliverables: Project roadmap, technical specifications, and success metrics.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-1/2 md:mr-4 w-6 h-6 rounded-full border-4 shadow-md" style="background-color: var(--color-link-primary); border-color: var(--color-card-bg);"></div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:odd:flex-row-reverse timeline-item">
+                        <div class="md:w-1/2 md:px-8 mb-4 md:mb-0">
+                            <div class="p-6 rounded-lg shadow-md card">
+                                <h3 class="text-xl font-semibold mb-2">Design & Development</h3>
+                                <p style="color: var(--color-text-secondary);" class="mb-2">
+                                    Our team creates wireframes, prototypes, and then develops the complete solution.
+                                </p>
+                                <p style="color: var(--color-text-secondary);">
+                                    Technologies: React, Node.js, WordPress, Shopify, and custom CMS solutions.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-1/2 md:mr-4 w-6 h-6 rounded-full border-4 shadow-md" style="background-color: var(--color-link-primary); border-color: var(--color-card-bg);"></div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:odd:flex-row-reverse timeline-item">
+                        <div class="md:w-1/2 md:px-8 mb-4 md:mb-0">
+                            <div class="p-6 rounded-lg shadow-md card">
+                                <h3 class="text-xl font-semibold mb-2">Testing & Launch</h3>
+                                <p style="color: var(--color-text-secondary);" class="mb-2">
+                                    Rigorous quality assurance and performance optimization before deployment.
+                                </p>
+                                <p style="color: var(--color-text-secondary);">
+                                    Includes: Security audits, cross-browser testing, and load testing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-1/2 md:mr-4 w-6 h-6 rounded-full border-4 shadow-md" style="background-color: var(--color-link-primary); border-color: var(--color-card-bg);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 section-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our <span style="color: var(--color-link-primary);">Portfolio</span></h2>
+            
+            <div class="relative">
+                <!-- Project Carousel -->
+                <div class="overflow-hidden">
+                    <div id="project-carousel" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Project 1 -->
+                        <div class="min-w-full px-4">
+                            <div class="rounded-xl overflow-hidden project-card border" style="border-color: var(--color-border-primary);">
+                                <div class="md:flex">
+                                    <div class="md:w-1/2">
+                                        <img src="images/ecommerce-project.jpg" 
+                                             alt="E-commerce Platform" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-8 md:w-1/2">
+                                        <div class="uppercase tracking-wide text-sm font-semibold" style="color: var(--color-link-primary);">E-commerce</div>
+                                        <h3 class="text-2xl font-semibold mt-2 mb-4">Luxury Fashion Store</h3>
+                                        <p style="color: var(--color-text-secondary);" class="mb-4">
+                                            A high-end fashion e-commerce platform with custom product configurator, AR try-on feature, and seamless checkout experience.
+                                        </p>
+                                        <div class="mb-6">
+                                            <h4 class="font-medium mb-2">Technologies Used:</h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Shopify Plus</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">React</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Node.js</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Three.js</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex space-x-4">
+                                            <a href="https://example-client-site.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">
+                                                View Live <i class="fas fa-external-link-alt ml-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="min-w-full px-4">
+                            <div class="rounded-xl overflow-hidden project-card border" style="border-color: var(--color-border-primary);">
+                                <div class="md:flex">
+                                    <div class="md:w-1/2">
+                                        <img src="images/cms-project.jpg" 
+                                             alt="Client Management System" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-8 md:w-1/2">
+                                        <div class="uppercase tracking-wide text-sm font-semibold" style="color: var(--color-link-primary);">SaaS Platform</div>
+                                        <h3 class="text-2xl font-semibold mt-2 mb-4">ClientFlow CMS</h3>
+                                        <p style="color: var(--color-text-secondary);" class="mb-4">
+                                            A comprehensive client management system with role-based access, project tracking, invoicing, and reporting features.
+                                        </p>
+                                        <div class="mb-6">
+                                            <h4 class="font-medium mb-2">Technologies Used:</h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">React</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Node.js</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">MongoDB</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Stripe API</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex space-x-4">
+                                            <a href="https://clientflow-cms.demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">
+                                                View Demo <i class="fas fa-external-link-alt ml-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <div class="min-w-full px-4">
+                            <div class="rounded-xl overflow-hidden project-card">
+                                <div class="md:flex">
+                                    <div class="md:w-1/2">
+                                        <img src="images/marketing-project.jpg" 
+                                             alt="Marketing Campaign" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-8 md:w-1/2">
+                                        <div class="uppercase tracking-wide text-sm font-semibold" style="color: var(--color-link-primary);">Digital Marketing</div>
+                                        <h3 class="text-2xl font-semibold mt-2 mb-4">Tech Startup Launch</h3>
+                                        <p style="color: var(--color-text-secondary);" class="mb-4">
+                                            Comprehensive digital marketing campaign including SEO, paid ads, content strategy, and conversion optimization for a SaaS startup.
+                                        </p>
+                                        <div class="mb-6">
+                                            <h4 class="font-medium mb-2">Results Achieved:</h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">+300% Traffic</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">+45% Conversions</span>
+                                                <span class="text-xs font-medium px-2.5 py-0.5 rounded" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">5.2x ROAS</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex space-x-4">
+                                            <a href="#contact" class="project-link project-link-primary">
+                                                Get Similar Results <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <div class="flex justify-center mt-8 space-x-4">
+                    <button id="prev-project" class="p-2 rounded-full" style="background-color: var(--color-border-primary);">
+                        <i class="fas fa-chevron-left" style="color: var(--color-text-primary);"></i>
+                    </button>
+                    <div id="project-indicators" class="flex items-center space-x-2">
+                        <button class="w-3 h-3 rounded-full project-indicator" data-index="0" style="background-color: var(--color-link-primary);"></button>
+                        <button class="w-3 h-3 rounded-full project-indicator" data-index="1" style="background-color: var(--color-border-primary);"></button>
+                        <button class="w-3 h-3 rounded-full project-indicator" data-index="2" style="background-color: var(--color-border-primary);"></button>
+                    </div>
+                    <button id="next-project" class="p-2 rounded-full" style="background-color: var(--color-border-primary);">
+                        <i class="fas fa-chevron-right" style="color: var(--color-text-primary);"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="py-20 section-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our <span style="color: var(--color-link-primary);">Technologies</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Development Stack Gallery -->
+                <div class="p-8 rounded-xl shadow-md card">
+                    <h3 class="text-2xl font-semibold mb-8 flex items-center">
+                        <i class="fas fa-code mr-3" style="color: var(--color-link-primary);"></i> Development Stack
+                    </h3>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                        <!-- Frontend -->
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-react text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">React</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-vuejs text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">Vue</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-js text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">Next.js</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Backend -->
+                        <div class="tech-item group" data-category="backend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-node-js text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="backend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-python text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">Python</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="backend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-php text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">PHP</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Databases -->
+                        <div class="tech-item group" data-category="database">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fas fa-database text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="database">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fas fa-database text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="database">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fas fa-database text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">PostgreSQL</span>
+                            </div>
+                        </div>
+                        
+                        <!-- CMS -->
+                        <!-- HTML -->
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-html5 text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">HTML</span>
+                            </div>
+                        </div>
+                        <!-- CSS -->
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-css3-alt text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">CSS</span>
+                            </div>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="tech-item group" data-category="frontend">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-js text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">JavaScript</span>
+                            </div>
+                        </div>
+                        <!-- AI Integration -->
+                        <div class="tech-item group" data-category="ai">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fas fa-robot text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">AI Integration</span>
+                            </div>
+                        </div>
+                        <div class="tech-item group" data-category="cms">
+                            <div class="p-4 rounded-lg flex flex-col items-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg" style="background-color: rgba(59, 130, 246, 0.1);">
+                                <i class="fab fa-wordpress text-4xl mb-2" style="color: var(--color-link-primary);"></i>
+                                <span class="text-sm font-medium">WordPress</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter Controls -->
+                    <div class="flex flex-wrap gap-2 mt-6 justify-center">
+                        <button class="filter-btn active px-3 py-1 rounded-md text-sm font-medium" data-filter="all">All</button>
+                        <button class="filter-btn px-3 py-1 rounded-md text-sm font-medium" data-filter="frontend">Frontend</button>
+                        <button class="filter-btn px-3 py-1 rounded-md text-sm font-medium" data-filter="backend">Backend</button>
+                        <button class="filter-btn px-3 py-1 rounded-md text-sm font-medium" data-filter="database">Databases</button>
+                        <button class="filter-btn px-3 py-1 rounded-md text-sm font-medium" data-filter="cms">CMS</button>
+                        <button class="filter-btn px-3 py-1 rounded-md text-sm font-medium" data-filter="ai">AI</button>
+                    </div>
+                </div>
+                
+                <!-- Marketing Tools -->
+                <div class="space-y-8">
+                    <div class="p-8 rounded-xl shadow-md card">
+                        <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                            <i class="fas fa-bullhorn mr-3" style="color: var(--color-link-primary);"></i> Marketing Tools
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Google Ads</span>
+                            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Facebook Ads</span>
+                            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">SEO Tools</span>
+                            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">Google Analytics</span>
+                            <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(59, 130, 246, 0.1); color: var(--color-link-primary);">HubSpot</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 rounded-xl shadow-md card">
+                        <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                            <i class="fas fa-shield-alt mr-3" style="color: var(--color-link-primary);"></i> Security Standards
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">DDoS Protection</span>
+                                    <span style="color: var(--color-text-secondary);">Mitigation Enabled</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">SQL Injection Prevention</span>
+                                    <span style="color: var(--color-text-secondary);">ORM/Parameterized</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Password Security</span>
+                                    <span style="color: var(--color-text-secondary);">Bcrypt/Argon2/Password hashing</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Rate Limiting</span>
+                                    <span style="color: var(--color-text-secondary);">Brute-Force Protection</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">API Security</span>
+                                    <span style="color: var(--color-text-secondary);">OAuth 2.0/JWT</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Data Encryption</span>
+                                    <span style="color: var(--color-text-secondary);">AES-256 at Rest</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">File Upload Security</span>
+                                    <span style="color: var(--color-text-secondary);">Malware Scans</span>
+                                </div>
+                                <div class="w-full rounded-full h-2.5" style="background-color: var(--color-border-primary);">
+                                    <div class="h-2.5 rounded-full skill-bar" style="width: 100%; background-color: var(--color-link-primary);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In <span style="color: var(--color-link-primary);">Touch</span></h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" action="https://formspree.io/f/mrblbyvo" method="POST" class="p-8 rounded-xl shadow-md card border" style="border-color: var(--color-border-primary);">
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" name="Name" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="Full name" required>
+                            <p id="name-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 font-medium">Your Email</label>
+                            <input type="email" id="email" name="Email" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="name@example.com" required>
+                            <p id="email-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" name="Subject" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="Regarding a project or partnership" required>
+                            <p id="subject-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 font-medium">Your Message</label>
+                            <textarea id="message" name="Message" rows="5" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="Tell us about your project..." required></textarea>
+                            <p id="message-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="g-recaptcha mb-4" data-sitekey="6LeKsY8rAAAAAJgAdmiguPhIfIGvFd30qgI1fhWh"></div>
+                        <button type="submit" class="w-full py-3 px-6 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors duration-300 contact-btn" style="background-color: var(--color-link-primary);">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="p-8 rounded-xl shadow-md h-full card border" style="border-color: var(--color-border-primary);">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="p-3 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-map-marker-alt" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Headquarters</h4>
+                                    <p style="color: var(--color-text-secondary);">123 Digital Avenue, Tech City, TC 10001</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-3 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-envelope" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p style="color: var(--color-text-secondary);">contact@devaxio.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-3 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-phone" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Phone</h4>
+                                    <p style="color: var(--color-text-secondary);">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-3 rounded-full mr-4" style="background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-clock" style="color: var(--color-link-primary);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Working Hours</h4>
+                                    <p style="color: var(--color-text-secondary);">Mon-Fri: 9AM - 6PM (GMT)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-medium mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://linkedin.com/company/devaxio" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" style="background-color: var(--color-border-primary);">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://twitter.com/devaxio" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" style="background-color: var(--color-border-primary);">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/devaxio" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" style="background-color: var(--color-border-primary);">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://github.com/devaxio" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" style="background-color: var(--color-border-primary);">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8" style="background-color: var(--color-bg-secondary); color: var(--color-text-primary);">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold" style="color: var(--color-link-primary);">Devaxio</a>
+                    <p class="mt-1" style="color: var(--color-text-secondary);">Web Development & Digital Marketing Agency</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Home</a>
+                    <a href="#services" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#portfolio" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Portfolio</a>
+                    <a href="#contact" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 text-center" style="border-color: var(--color-border-primary); color: var(--color-text-secondary);">
+                <p>&copy; <span id="current-year"></span> Devaxio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle with better persistence
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Initialize theme
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        }
+
+        function enableLightMode() {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            localStorage.setItem('theme', 'light');
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+        }
+
+        function enableDarkMode() {
+            html.classList.remove('light');
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        }
+
+        // Initialize on load
+        initTheme();
+
+        // Watch for system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            const newColorScheme = e.matches ? "dark" : "light";
+            if (newColorScheme === 'dark') {
+                enableDarkMode();
+            } else {
+                enableLightMode();
+            }
+        });
+
+        // Toggle on button click
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Project carousel
+        const projectCarousel = document.getElementById('project-carousel');
+        const prevButton = document.getElementById('prev-project');
+        const nextButton = document.getElementById('next-project');
+        const projectIndicators = document.querySelectorAll('.project-indicator');
+        
+        let currentProject = 0;
+        const totalProjects = document.querySelectorAll('.min-w-full').length;
+        
+        function updateCarousel() {
+            projectCarousel.style.transform = `translateX(-${currentProject * 100}%)`;
+            
+            // Update indicators
+            projectIndicators.forEach((indicator, index) => {
+                if (index === currentProject) {
+                    indicator.style.backgroundColor = 'var(--color-link-primary)';
+                } else {
+                    indicator.style.backgroundColor = 'var(--color-border-primary)';
+                }
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentProject = (currentProject - 1 + totalProjects) % totalProjects;
+            updateCarousel();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentProject = (currentProject + 1) % totalProjects;
+            updateCarousel();
+        });
+        
+        // Indicator click events
+        projectIndicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentProject = parseInt(indicator.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+        
+        // Form submission with Formspree
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+            if (name.value.trim() === '') {
+                nameError.textContent = 'Name is required';
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else if (!emailRegex.test(email.value)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+            }
+            
+            // Validate subject
+            const subject = document.getElementById('subject');
+            const subjectError = document.getElementById('subject-error');
+            if (subject.value.trim() === '') {
+                subjectError.textContent = 'Subject is required';
+                subjectError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                subjectError.classList.add('hidden');
+            }
+            
+            // Validate message
+            const message = document.getElementById('message');
+            const messageError = document.getElementById('message-error');
+            if (message.value.trim() === '') {
+                messageError.textContent = 'Message is required';
+                messageError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                messageError.classList.add('hidden');
+            }
+            
+            if (isValid) {
+                // Verify reCAPTCHA
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    alert('Please complete the reCAPTCHA verification.');
+                    return;
+                }
+
+                const formData = new FormData(contactForm);
+                formData.append('g-recaptcha-response', recaptchaResponse);
+                
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                
+                try {
+                    // Change button text to indicate loading
+                    submitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin ml-2"></i>';
+                    submitButton.disabled = true;
+                    
+                    // Send form data to Formspree
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success message
+                        alert('Message sent successfully!');
+                        contactForm.reset();
+                        grecaptcha.reset();
+                    } else {
+                        // Error message
+                        const data = await response.json();
+                        if (data.errors) {
+                            alert('Error: ' + JSON.stringify(data.errors));
+                        } else {
+                            alert('There was a problem submitting your form. Please try again.');
+                        }
+                    }
+                } catch (error) {
+                    alert('There was a network error. Please try again.');
+                } finally {
+                    // Reset button state
+                    submitButton.innerHTML = 'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+                    submitButton.disabled = false;
+                }
+            }
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+
+        // Tech Stack Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const techItems = document.querySelectorAll('.tech-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                
+                // Filter items
+                techItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Initialize all items as visible
+        techItems.forEach(item => {
+            item.style.display = 'block';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+
+        // Animate timeline items on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+    </script>
+</body>
+</html>
