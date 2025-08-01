@@ -7,6 +7,12 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://devaxio.com/safi-morocco</loc>
+        <lastmod>2025-07-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    <url>
         <loc>https://devaxio.com/fr/</loc>
         <lastmod>2025-07-28</lastmod>
         <changefreq>weekly</changefreq>
