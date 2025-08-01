@@ -238,6 +238,7 @@
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#process" class="nav-link">Notre Processus</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#faq" class="nav-link">FAQ</a>
             </div>
             <div class="flex items-center space-x-4">
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-400 transition-colors duration-200" aria-label="Toggle dark mode">
@@ -267,6 +268,7 @@
                 <a href="#portfolio" class="nav-link py-1">Portfolio</a>
                 <a href="#process" class="nav-link py-1">Notre Processus</a>
                 <a href="#contact" class="nav-link py-1">Contact</a>
+                <a href="#faq" class="nav-link py-1">FAQ</a>
             </div>
         </div>
     </header>
@@ -1071,8 +1073,157 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+    <section id="faq" class="py-20 section-primary border-t" style="border-color: var(--color-border-primary);">
+        <div class="container mx-auto px-6">
+          <div class="flex items-center mb-8">
+            <img src="images/Devaxio2D.png" alt="Devaxio Logo" class="h-12 w-12 mr-4">
+            <h2 class="text-3xl font-bold" style="color: var(--color-link-primary);">Questions fréquemment posées</h2>
+          </div>
+          <div class="space-y-4" id="faq-accordion">
+            <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+              <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                <span class="text-lg font-semibold text-left">Quels services offre Devaxio?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                Nous offrons le développement web, la marketing digital, la conception UI/UX et les solutions de croissance de l'entreprise.
+              </div>
+            </div>
+            <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+              <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                <span class="text-lg font-semibold text-left">Quel est le délai de construction d'un site web?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                La plupart des projets prennent 2–6 semaines, en fonction de la complexité et des exigences.
+              </div>
+            </div>
+            <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+              <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                <span class="text-lg font-semibold text-left">Comment puis-je obtenir un devis?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+              </button>
+              <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                Contactez-nous via notre site web ou email, et nous vous fournirons un devis gratuit et sans engagement.
+              </div>
+            </div>
+            <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+                <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                  <span class="text-lg font-semibold text-left">Quelle est votre politique de remboursement?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                  Nous offrons une garantie de remboursement de 100% dans un délai de 30 jours si vous n'êtes pas satisfait de nos services. Mais l'argent utilisé pour fournir l'infrastructure sur laquelle le site web est construit n'est pas remboursable.
+                </div>
+              </div>
+              <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+                <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                  <span class="text-lg font-semibold text-left">Où travaillez-vous?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                  Nous sommes une agence 100% à distance, ce qui nous donne la flexibilité de travailler n'importe où et d'offrir des services mondiaux.
+                </div>
+              </div>
+              <div class="faq-item border rounded-lg overflow-hidden" style="border-color: var(--color-border-primary);">
+                <button type="button" class="w-full flex items-center justify-between px-6 py-4 bg-transparent focus:outline-none faq-question" style="color: var(--color-text-primary);" aria-expanded="false">
+                  <span class="text-lg font-semibold text-left">Quelles sont vos prix?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300 text-xl" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer px-6 pb-4 hidden" style="color: var(--color-text-secondary);">
+                  Nos prix varient en fonction de la complexité du projet et du temps nécessaire à sa réalisation. Mais nous fournissons une estimation basée sur la catégorie de site web choisie par le client.
+                </div>
+              </div>
+            </div>
+          <script>
+            const faqAccordion = document.getElementById('faq-accordion');
+            const faqItems = faqAccordion.children;
+          "mainEntity" [
+            {
+              "@type": "Question",
+              "name": "Quels services offre Devaxio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous offrons le développement web, la marketing digital, la conception UI/UX et les solutions de croissance de l'entreprise."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quel est le délai de construction d'un site web?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La plupart des projets prennent 2–6 semaines, en fonction de la complexité et des exigences."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Comment puis-je obtenir un devis?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Contactez-nous via notre site web ou email, et nous vous fournirons un devis gratuit et sans engagement."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quelle est votre politique de remboursement?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous offrons une garantie de remboursement de 100% dans un délai de 30 jours si vous n'êtes pas satisfait de nos services. Mais l'argent utilisé pour fournir l'infrastructure sur laquelle le site web est construit n'est pas remboursable."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Où travaillez-vous?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous sommes une agence 100% à distance, ce qui nous donne la flexibilité de travailler n'importe où et d'offrir des services mondiaux."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quelles sont vos prix?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nos prix varient en fonction de la complexité du projet et du temps nécessaire à sa réalisation. Mais nous fournissons une estimation basée sur la catégorie de site web choisie par le client."
+              }
+            }
+          ]
+        
+        </script>
+      </section>
+<script>
+  // FAQ Accordion Dropdown Logic (French)
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqQuestions = document.querySelectorAll('#faq-accordion .faq-question');
+    faqQuestions.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const answer = btn.parentElement.querySelector('.faq-answer');
+        const icon = btn.querySelector('i');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        // Hide all others
+        faqQuestions.forEach(otherBtn => {
+          if (otherBtn !== btn) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherBtn.parentElement.querySelector('.faq-answer').classList.add('hidden');
+            otherBtn.querySelector('i').classList.remove('fa-rotate-180');
+          }
+        });
+        // Toggle this one
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.remove('hidden');
+          icon.classList.add('fa-rotate-180');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          answer.classList.add('hidden');
+          icon.classList.remove('fa-rotate-180');
+        }
+      });
+    });
+  });
+</script>
+    
+     <!-- Footer -->
     <footer class="py-8" style="background-color: var(--color-bg-secondary); color: var(--color-text-primary);">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
