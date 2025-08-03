@@ -1,0 +1,42 @@
+{
+  "name": "Devaxio",
+  "short_name": "Devaxio",
+  "description": "Devaxio - Your trusted partner for web development, digital marketing, and business growth solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "en",
+  "orientation": "portrait",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "images/Devaxio2D.webp",
+      "sizes": "16x16",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/Devaxio2D.webp",
+      "sizes": "32x32",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/Devaxio2D.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/Devaxio2D.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://devaxio.com"
+    }
+  ],
+  "prefer_related_applications": false
+}
