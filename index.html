@@ -42,7 +42,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 
 <!-- Web App Manifest -->
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="site.webmanifest">
     <!-- JSON-LD Schema Markup -->
   <script type="application/ld+json">
     {
@@ -262,7 +262,7 @@
               </a>
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#process" class="nav-link">Our Process</a>
@@ -283,6 +283,9 @@
                         <a href="./indexFR.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400">Français</a>
                     </div>
                 </div>
+                <a href="#contact" class="px-4 py-2 rounded-lg font-medium contact-btn hidden md:block">
+                    Get a Quote
+                </a>
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-400">
                     <i class="fas fa-bars" style="color: var(--color-text-primary);"></i>
                 </button>
@@ -298,7 +301,11 @@
                 <a href="#process" class="nav-link py-1">Our Process</a>
                 <a href="#contact" class="nav-link py-1">Contact</a>
                 <a href="#faq" class="nav-link py-1">FAQ</a>
+                <a href="#contact" class="px-4 py-2 rounded-lg font-medium contact-btn text-center">
+                    Get a Quote
+                </a>
             </div>
+            
         </div>
     </header>
 
@@ -383,9 +390,13 @@
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <a href="#contact" class="px-6 py-3 rounded-lg font-medium contact-btn">
-                    Get a Free Consultation
+            <div class="text-center mt-10">
+                <a href="#contact" class="w-full align-center flex items-center justify-center px-6 py-3 rounded-lg font-medium contact-btn">
+                    Get a Free Consultation 
+                </a>
+                <br></br>
+                <a href="services.html" class="w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium contact-btn bg-red-400 hover:bg-red-500">
+                    View Our Pricing
                 </a>
             </div>
         </div>
@@ -1021,6 +1032,16 @@
                             <label for="email" class="block mb-2 font-medium">Your Email</label>
                             <input type="email" id="email" name="Email" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="name@example.com" required>
                             <p id="email-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="mb-6">
+                            <label for="service" class="block mb-2 font-medium">Service Interested In</label>
+                            <select id="service" name="Service" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input">
+                                <option>Web Development</option>
+                                <option>Digital Marketing</option>
+                                <option>Design Services</option>
+                                <option>All of the above</option>
+                                <option>Other</option>
+                            </select>
                         </div>
                         <div class="mb-6">
                             <label for="subject" class="block mb-2 font-medium">Subject</label>

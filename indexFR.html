@@ -32,7 +32,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 
 <!-- Web App Manifest -->
-<link rel="manifest" href="/site.webmanifest">
+<link rel="manifest" href="site-fr.webmanifest">
     <!-- JSON-LD Schema Markup -->
   <script type="application/ld+json">
     {
@@ -372,9 +372,13 @@
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <a href="#contact" class="px-6 py-3 rounded-lg font-medium contact-btn">
-                    Prendre un rendez-vous
+            <div class="text-center mt-10">
+                <a href="#contact" class="w-full align-center flex items-center justify-center px-6 py-3 rounded-lg font-medium contact-btn">
+                    Prendre un rendez-vous 
+                </a>
+                <br></br>
+                <a href="services.html" class="w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium contact-btn bg-red-400 hover:bg-red-500">
+                    Voir nos prix
                 </a>
             </div>
         </div>
@@ -1010,6 +1014,16 @@
                             <label for="email" class="block mb-2 font-medium">Email</label>
                             <input type="email" id="email" name="Email" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input" placeholder="name@example.com" required>
                             <p id="email-error" class="hidden mt-1 text-sm text-red-600"></p>
+                        </div>
+                        <div class="mb-6">
+                            <label for="service" class="block mb-2 font-medium">Service Interested In</label>
+                            <select id="service" name="Service" class="w-full px-4 py-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 form-input">
+                                <option>Development web</option>
+                                <option>Marketing Digital</option>
+                                <option>Services de design</option>
+                                <option>Tout ce qui précède</option>
+                                <option>Autre</option>
+                            </select>
                         </div>
                         <div class="mb-6">
                             <label for="subject" class="block mb-2 font-medium">Sujet</label>

@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Devaxio - Web Development & Digital Marketing</title>
+    <meta name="description" content="Explore Devaxio's comprehensive digital services including web development, e-commerce solutions, digital marketing, and custom branding.">
+    <link rel="icon" type="image/webp" href="images/Devaxio2D.webp">
+    <link rel="shortcut icon" href="images/Devaxio2D.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="images/Devaxio2D.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="images/Devaxio2D.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="images/Devaxio2D.webp">
+    <link rel="icon" type="image/webp" sizes="192x192" href="images/Devaxio2D.webp">
+    <link rel="manifest" href="site.webmanifest">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Color Variables updated */
+        :root {
+            --color-bg-primary: #ffffff;
+            --color-bg-secondary: #f9fafb;
+            --color-text-primary: #111827;
+            --color-text-secondary: #4b5563;
+            --color-text-tertiary: #1543fa;
+            --color-border-primary: #e5e7eb;
+            --color-link-primary: #3b82f6;
+            --color-shadow-primary: rgba(0, 0, 0, 0.1);
+            --color-card-bg: #ffffff;
+            --color-link-hover: #2563eb;
+            --color-text-hover: #e5e7eb;
+            --color-link-hover: #00a89c; /* Syan Green */
+        }
+
+        .dark {
+            --color-bg-primary: #111827;
+            --color-bg-secondary: #1f2937;
+            --color-text-primary: #f9fafb;
+            --color-text-secondary: #d1d5db;
+            --color-text-tertiary: #facc15;
+            --color-border-primary: #374151;
+            --color-link-primary: #60a5fa;
+            --color-shadow-primary: rgba(0, 0, 0, 0.3);
+            --color-card-bg: #1f2937;
+            --color-link-hover: #93c5fd;
+            --color-text-hover: #1f2937;
+            --color-link-hover: #00a89c; /* Syan Green */
+        }
+
+        /* Base Styles */
+        body {
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            color: var(--color-text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-link-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-link-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--color-card-bg);
+            border-color: var(--color-border-primary);
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--color-card-bg);
+            border-color: var(--color-border-primary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px var(--color-shadow-primary), 0 4px 6px -2px var(--color-shadow-primary);
+        }
+
+        /* Project link styles */
+        .project-link {
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+
+        .project-link-primary {
+            color: var(--color-link-primary);
+        }
+
+        .project-link-primary:hover {
+            color: white;
+            background-color: var(--color-link-primary);
+        }
+
+        .project-link-secondary {
+            color: var(--color-text-secondary);
+        }
+
+        .project-link-secondary:hover {
+            color: var(--color-text-hover);
+            background-color: var(--color-text-secondary);
+        }
+
+        /* Section styles */
+        .section-primary {
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+        }
+
+        .section-secondary {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+        }
+
+        .section-primary .text-gray-600 {
+            color: var(--color-text-secondary);
+        }
+
+        .section-secondary .text-gray-600 {
+            color: var(--color-text-secondary);
+        }
+
+        /* Language switcher styles */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--color-text-primary);
+        }
+
+        .language-btn:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--color-bg-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            min-width: 120px;
+            z-index: 50;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            color: var(--color-text-primary);
+        }
+
+        .language-option:hover {
+            background-color: var(--color-bg-secondary);
+        }
+
+        .language-option img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+
+        /* Service card styles */
+        .service-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .service-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border-primary);
+        }
+
+        .service-card:hover .service-card-inner {
+            transform: rotateY(10deg);
+        }
+
+        .price-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--color-link-primary);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: rotate(15deg);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .price-badge {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        /* Animation styles */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+            color: var(--color-text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-link-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-link-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        /* Button styles */
+        .contact-btn {
+            background-color: var(--color-link-primary);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--color-link-hover);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full header-bg backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">
+                <img src="images/Devaxio2D.webp" alt="Devaxio Logo" class="h-16 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#process" class="nav-link">Our Process</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-400 transition-colors duration-200" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon dark:hidden" style="color: var(--color-text-primary);"></i>
+                    <i class="fas fa-sun hidden dark:block" style="color: var(--color-text-primary);"></i>
+                </button>
+                <div class="relative">
+                    <button id="language-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-400">
+                        <i class="fas fa-globe" style="color: var(--color-text-primary);"></i>
+                    </button>
+                    <div id="language-dropdown" class="hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg py-1 z-50" style="background-color: var(--color-card-bg); border: 1px solid var(--color-border-primary);">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400">English</a>
+                        <a href="./servicesFR.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400">Français</a>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="px-4 py-2 rounded-lg font-medium contact-btn hidden md:block">
+                    Get a Quote
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600">
+                    <i class="fas fa-bars" style="color: var(--color-text-primary);"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden py-2 px-4 shadow-md bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-400">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="nav-link py-1">Home</a>
+                <a href="services.html" class="nav-link py-1">Services</a>
+                <a href="index.html#about" class="nav-link py-1">About Us</a>
+                <a href="index.html#portfolio" class="nav-link py-1">Portfolio</a>
+                <a href="index.html#process" class="nav-link py-1">Our Process</a>
+                <a href="index.html#contact" class="nav-link py-1">Contact</a>
+                <a href="index.html#faq" class="nav-link py-1">FAQ</a>
+                <a href="index.html#contact" class="px-4 py-2 rounded-lg font-medium contact-btn text-center">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">Our <span class="text-blue-500">Services</span></h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+                        Comprehensive digital solutions tailored to your business needs. From stunning websites to powerful marketing strategies.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="index.html#contact" class="px-6 py-3 rounded-lg font-medium contact-btn">
+                            Get Started
+                        </a>
+                        <a href="services.html#web" class="px-6 py-3 rounded-lg font-medium border border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative floating">
+                        <img src="images/Devaxio.webp" alt="Devaxio Services" class="w-64 h-64 md:w-80 md:h-80 object-contain">
+                        <div class="absolute -bottom-8 -right-8 bg-blue-500 text-white p-4 rounded-full shadow-xl">
+                            <i class="fas fa-rocket text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Services Section -->
+    <section id="web" class="py-16 section-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Web <span class="text-blue-500">Development</span></h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Custom websites built with modern technologies to ensure performance, security, and scalability.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- One Page Website -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-file-alt text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">One Page Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Perfect for simple online presence with all essential information on a single page.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Single page design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Mobile responsive</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Contact form</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Optimized and fast loading</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect as landing page</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-green-500">500 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <!-- Business Website -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-briefcase text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Showcase Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Professional multi-page website to showcase your business and services.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">4-6 pages</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Custom design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Activity presentation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Contact management</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect for entreprises</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-green-500">800 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dynamic Website -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-cogs text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Dynamic Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Feature-rich website with dynamic content and user interaction capabilities.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Content management</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">User accounts</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Database integration</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Smart filters and navigation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect for services</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-green-500">1500 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Website -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-laptop-code text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Custom Website</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Tailored solutions with unique features designed specifically for your needs.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Fully custom design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Advanced functionality</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Adapted for your needs</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Scalable architecture</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect for complex unique projects</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-green-500">2500 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- E-Commerce -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-shopping-cart text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">E-Commerce Store</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Complete online store with product management, cart, and secure checkout.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Product catalog</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Shopping cart</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Payment gateways</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Admin space with dashboard</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect for stores</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-green-500">4000 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SaaS Application -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-cloud text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">SaaS Application</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Custom software-as-a-service platform with subscription management.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">User authentication</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Subscription billing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Advanced management tools</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Updates included</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <span style="font-weight: bold; color: var(--color-text-tertiary);">Perfect for professional management</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Custom pricing</span>
+                                <span class="text-xl font-bold text-green-500">Let's talk</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-badge pulse" style="background-color: #10B981;">
+                        Custom
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Section -->
+    <section id="marketing" class="py-16 section-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Digital <span class="text-blue-500">Marketing</span></h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Our team is dedicated to helping you achieve your business goals with our comprehensive marketing strategies.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SEO -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-search text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">SEO Optimization</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Improve your search engine rankings and drive organic traffic to your website.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Keyword research</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">On-page optimization</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Technical SEO audit</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Content strategy</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">800 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-hashtag text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Social Media Management</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Build and engage your audience across all major social platforms.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Content creation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Post scheduling</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Community engagement</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Performance analytics</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">1200 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PPC -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-ad text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Pay-Per-Click Advertising</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Targeted ads that drive qualified traffic to your website.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Google Ads</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Facebook/Instagram Ads</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Ad copywriting</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Conversion tracking</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">1500 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email Marketing -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-envelope text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Email Marketing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Nurture leads and retain customers with strategic email campaigns.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Newsletter design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Automation workflows</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">List segmentation</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Performance analytics</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">1000 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Marketing -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-pen-fancy text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Content Marketing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Attract and engage your audience with valuable, relevant content.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Blog writing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Infographics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Video scripts</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Content strategy</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">900 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-chart-line text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Analytics & Reporting</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Measure performance and optimize your marketing efforts with data-driven insights.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Google Analytics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Conversion tracking</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Custom dashboards</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Monthly reports</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-blue-500">700 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Services Section -->
+    <section id="design" class="py-16 section-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Design <span class="text-blue-500">Services</span></h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Visually stunning designs that communicate your brand identity and engage your audience.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Logo Design -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-palette text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Logo Design</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Unique and memorable logo that represents your brand identity.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">3 initial concepts</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Unlimited revisions</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Vector files</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Brand guidelines</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">300 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Branding -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-flag text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Brand Identity</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Complete visual identity system for your brand.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Logo design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Color palette</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Typography</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Brand guidelines</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">500 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Print Design -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-print text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Print Design</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Professional designs for your printed marketing materials.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Business cards</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Flyers & brochures</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Posters & banners</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Print-ready files</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">400 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-mobile-alt text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">UI/UX Design</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Intuitive and beautiful interfaces that enhance user experience with 3D modules.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Wireframing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Prototyping</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">User testing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Responsive design</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">1000 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media Graphics -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fab fa-instagram text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Social Media Graphics</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Eye-catching visuals for your social media channels.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Post designs</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Story templates</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Cover photos</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Brand consistency</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">500 DH/mo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Packaging Design -->
+                <div class="service-card relative fade-in">
+                    <div class="service-card-inner h-full rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto bg-blue-100 dark:bg-blue-900/50">
+                                <i class="fas fa-box-open text-2xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Packaging Design</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+                                Attractive packaging that stands out on shelves and delights customers.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Label design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Box design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Mockups</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span style="color: var(--color-text-secondary);">Print-ready files</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 dark:bg-gray-600 border-t border-gray-200 dark:border-gray-500">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 dark:text-gray-300">Starting at</span>
+                                <span class="text-xl font-bold text-red-500">1300 DH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Digital Presence?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Let's discuss how we can help you achieve your business goals with our expert services.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="index.html#contact" class="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors">
+                    Get a Free Consultation
+                </a>
+                <a href="tel:+212783485762" class="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-phone mr-2"></i> Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="py-8" style="background-color: var(--color-bg-secondary); color: var(--color-text-primary);">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold" style="color: var(--color-link-primary);">Devaxio</a>
+                    <p class="mt-1" style="color: var(--color-text-secondary);">Web Development & Digital Marketing Agency</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html#home" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Home</a>
+                    <a href="index.html#services" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Services</a>
+                    <a href="index.html#portfolio" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Portfolio</a>
+                    <a href="index.html#contact" style="color: var(--color-text-secondary);" class="hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 text-center" style="border-color: var(--color-border-primary); color: var(--color-text-secondary);">
+                <p>&copy; <span id="current-year"></span> Devaxio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle - matches index.html
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Initialize theme from localStorage or prefers-color-scheme
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                enableDarkMode();
+            } else {
+                enableLightMode();
+            }
+        }
+
+        function enableLightMode() {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            localStorage.setItem('theme', 'light');
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+        }
+
+        function enableDarkMode() {
+            html.classList.remove('light');
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        }
+
+        // Initialize on load
+        initTheme();
+
+        // Watch for system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+            const newColorScheme = e.matches ? "dark" : "light";
+            if (newColorScheme === 'dark') {
+                enableDarkMode();
+            } else {
+                enableLightMode();
+            }
+        });
+
+        // Toggle on button click
+        themeToggle.addEventListener('click', toggleTheme);
+
+
+        // Language dropdown toggle
+        const languageToggle = document.getElementById('language-toggle');
+        const languageDropdown = document.getElementById('language-dropdown');
+        
+        languageToggle.addEventListener('click', () => {
+            languageDropdown.classList.toggle('hidden');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageDropdown.classList.add('hidden');
+            }
+        });
+        // Change language function
+        function changeLanguage(lang) {
+            if (lang === 'fr') {
+                window.location.href = 'servicesFR.html';
+            }
+            // Default is English (stays on current page)
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
