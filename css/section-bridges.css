@@ -1,0 +1,96 @@
+/* Section bridges — smooth shape transitions between tones */
+
+:root {
+  --bridge-h: clamp(3.25rem, 8vw, 5.75rem);
+  --tone-base: var(--color-bg-deep);
+  --tone-alt: var(--color-bg-secondary);
+  --tone-footer: var(--color-bg-primary);
+}
+
+.section--base { background: var(--tone-base); }
+.section--alt { background: var(--tone-alt); }
+
+.section-bridge {
+  position: relative;
+  height: var(--bridge-h);
+  margin-top: calc(var(--bridge-h) * -0.52);
+  margin-bottom: calc(var(--bridge-h) * -0.48);
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.section-bridge svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.section-bridge .bridge-fill {
+  fill: var(--bridge-to);
+}
+
+.section-bridge .bridge-rim {
+  fill: none;
+  stroke: url(#bridge-stroke-global);
+  stroke-width: 1.5;
+  opacity: 0.85;
+}
+
+.section-bridge .bridge-accent {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.2);
+  stroke-width: 1;
+}
+
+/* Pull sections together at bridges */
+.section--merge-top {
+  padding-top: calc(var(--space-2xl) + var(--bridge-h) * 0.28);
+}
+.section--merge-bottom {
+  padding-bottom: calc(var(--space-2xl) + var(--bridge-h) * 0.2);
+}
+
+.stats-bar--merged {
+  margin-bottom: calc(var(--bridge-h) * -0.35);
+}
+
+/* Flip bridge when transition goes alt → base vs base → alt */
+.section-bridge--flip-y svg {
+  transform: scaleY(-1);
+}
+
+.light .section-bridge .bridge-accent {
+  stroke: rgba(99, 102, 241, 0.22);
+}
+
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-bridge--soft {
+  --bridge-h: clamp(2rem, 5vw, 3.25rem);
+  margin-top: calc(var(--bridge-h) * -0.45);
+  margin-bottom: calc(var(--bridge-h) * -0.4);
+}
+
+.section-bridge--footer {
+  --bridge-h: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 0;
+}
+
+.section--compact {
+  padding-top: calc(var(--space-lg) + var(--bridge-h) * 0.22);
+  padding-bottom: var(--space-lg);
+}
+
+.site-footer--merged {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(var(--bridge-h) * -0.42);
+  padding-top: calc(var(--space-xl) + var(--bridge-h) * 0.3);
+}
