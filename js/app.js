@@ -231,6 +231,32 @@
     }
   });
 
+  // Mobile theme toggle
+const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+if (mobileThemeToggle) {
+  mobileThemeToggle.addEventListener('click', () => {
+    // Sync with desktop theme toggle
+    const desktopToggle = document.getElementById('theme-toggle');
+    if (desktopToggle) desktopToggle.click();
+  });
+}
+
+// Mobile language toggle
+const mobileLangToggle = document.getElementById('mobile-language-toggle');
+const mobileLangDropdown = document.getElementById('mobile-language-dropdown');
+if (mobileLangToggle && mobileLangDropdown) {
+  mobileLangToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileLangDropdown.classList.toggle('is-open');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileLangToggle.contains(e.target) && !mobileLangDropdown.contains(e.target)) {
+      mobileLangDropdown.classList.remove('is-open');
+    }
+  });
+}
   /* Footer year */
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

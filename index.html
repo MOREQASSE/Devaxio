@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="design-system.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/section-bridges.css">
+  <link rel="stylesheet" href="css/laser-engrave.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,15 +96,37 @@
       </div>
     </div>
     <nav id="mobile-nav" class="mobile-nav glass" aria-label="Mobile">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#process" class="nav-link">Process</a>
-      <a href="#contact" class="nav-link">Contact</a>
-      <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#contact" class="btn-primary" style="text-align:center;margin-top:0.5rem">Get a Quote</a>
+      <div class="mobile-nav-section">
+        <a href="#home" class="nav-link mobile-nav-link">Home</a>
+        <a href="services.html" class="nav-link mobile-nav-link">Services</a>
+        <a href="#about" class="nav-link mobile-nav-link">About</a>
+        <a href="#portfolio" class="nav-link mobile-nav-link">Portfolio</a>
+        <a href="#process" class="nav-link mobile-nav-link">Process</a>
+        <a href="#contact" class="nav-link mobile-nav-link">Contact</a>
+        <a href="#faq" class="nav-link mobile-nav-link">FAQ</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-actions">
+          <button type="button" id="mobile-theme-toggle" class="mobile-nav-action-btn" aria-label="Toggle light mode">
+            <i class="fas fa-sun" aria-hidden="true"></i>
+            <span>Toggle Theme</span>
+          </button>
+          <div style="position:relative">
+            <button type="button" id="mobile-language-toggle" class="mobile-nav-action-btn" aria-label="Language">
+              <i class="fas fa-globe" aria-hidden="true"></i>
+              <span>Language</span>
+            </button>
+            <div id="mobile-language-dropdown" class="lang-dropdown glass mobile-lang-dropdown">
+              <a href="index.html" class="mobile-lang-link">English</a>
+              <a href="indexFR.html" class="mobile-lang-link">Français</a>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary mobile-nav-cta">Get a Quote</a>
+      </div>
     </nav>
+    
   </header>
 
   <main id="main">
@@ -194,27 +217,49 @@
       </div>
     </section>
 
-    <div class="stats-bar stats-bar--merged">
+        <div class="stats-bar stats-bar--merged" data-laser-engrave>
+      <div class="laser-canvas" aria-hidden="true">
+        <svg class="laser-overlay" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="laser-beam-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#818cf8" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
       <div class="container stats-grid">
-        <div class="stat-item" data-animate="fade-up">
-          <div class="stat-value" data-count="50" data-suffix="+">50+</div>
+        <div class="stat-item stat-item--laser" data-animate="fade-up">
+          <svg class="stat-number-svg" viewBox="0 0 200 60" aria-hidden="true">
+            <text class="stat-number-path" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-weight="700" fill="none" stroke="url(#laser-beam-gradient)" stroke-width="1.5">50+</text>
+          </svg>
+          <div class="stat-value stat-value--engraved" data-count="50" data-suffix="+">50+</div>
           <div class="stat-label">Projects delivered</div>
         </div>
-        <div class="stat-item" data-animate="fade-up">
-          <div class="stat-value" data-count="30" data-suffix="+">30+</div>
+        <div class="stat-item stat-item--laser" data-animate="fade-up">
+          <svg class="stat-number-svg" viewBox="0 0 200 60" aria-hidden="true">
+            <text class="stat-number-path" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-weight="700" fill="none" stroke="url(#laser-beam-gradient)" stroke-width="1.5">30+</text>
+          </svg>
+          <div class="stat-value stat-value--engraved" data-count="30" data-suffix="+">30+</div>
           <div class="stat-label">Happy clients</div>
         </div>
-        <div class="stat-item" data-animate="fade-up">
-          <div class="stat-value" data-count="3" data-suffix="+">3+</div>
+        <div class="stat-item stat-item--laser" data-animate="fade-up">
+          <svg class="stat-number-svg" viewBox="0 0 200 60" aria-hidden="true">
+            <text class="stat-number-path" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-weight="700" fill="none" stroke="url(#laser-beam-gradient)" stroke-width="1.5">3+</text>
+          </svg>
+          <div class="stat-value stat-value--engraved" data-count="3" data-suffix="+">3+</div>
           <div class="stat-label">Years of expertise</div>
         </div>
-        <div class="stat-item" data-animate="fade-up">
-          <div class="stat-value" data-count="100" data-suffix="%">100%</div>
+        <div class="stat-item stat-item--laser" data-animate="fade-up">
+          <svg class="stat-number-svg" viewBox="0 0 200 60" aria-hidden="true">
+            <text class="stat-number-path" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-weight="700" fill="none" stroke="url(#laser-beam-gradient)" stroke-width="1.5">100%</text>
+          </svg>
+          <div class="stat-value stat-value--engraved" data-count="100" data-suffix="%">100%</div>
           <div class="stat-label">Client satisfaction focus</div>
         </div>
       </div>
     </div>
-
     <div class="section-bridge section-bridge--curve" style="--bridge-to: var(--tone-base)" data-parallax aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="bridge-fill" d="M0,58 C200,98 420,28 720,62 C1020,96 1240,32 1440,72 L1440,120 L0,120 Z"/><path class="bridge-rim" d="M0,56 C220,92 460,34 720,60 C980,86 1220,38 1440,70"/><path class="bridge-accent" d="M0,68 C360,88 720,48 1080,78 1440,62"/></svg>
     </div>
@@ -666,5 +711,6 @@
   <script src="js/app.js" defer></script>
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/section-bridges.js" defer></script>
+  <script src="js/laser-engrave.js" defer></script>
 </body>
 </html>
