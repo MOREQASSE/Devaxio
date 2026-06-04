@@ -522,22 +522,76 @@
     </div>
 
     <section id="about" class="section--alt section--merge-top">
+      <div class="about-bg" aria-hidden="true">
+        <img src="images/about us bgr.png" alt="" loading="lazy">
+        <div class="about-bg-overlay"></div>
+      </div>
       <div class="container about-split">
-        <div class="about-visual" data-animate="fade-up">
-          <img class="brand-logo brand-logo--about" src="images/Devaxio2D.webp" alt="Devaxio logo mark" width="220" height="220" loading="lazy">
-        </div>
         <div>
           <span class="section-label">About us</span>
           <h2>Who We <span class="gradient-text">Are</span></h2>
           <p style="color:var(--color-text-secondary);margin:1rem 0 1.5rem">Devaxio is a full-service digital agency in Safi, Morocco. Since 2023 we have helped businesses establish and grow their online presence with modern technology and creative strategy.</p>
-          <div class="about-cards">
-            <div class="about-mini card" data-animate="fade-up">
-              <h4><i class="fas fa-laptop-code" style="color:var(--color-accent-cyan)" aria-hidden="true"></i> Mission</h4>
-              <p>Innovative digital solutions that drive measurable business growth.</p>
+          <div class="about-anatomy" data-anatomy-container>
+            <img class="anatomy-logo-img" src="images/Devaxio2D.webp" alt="Devaxio" loading="lazy" decoding="async">
+            <svg class="anatomy-svg" viewBox="0 0 400 400" aria-hidden="true">
+              <defs>
+                <radialGradient id="logoGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#6366f1" stop-opacity="0.15" />
+                  <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.06" />
+                  <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                </radialGradient>
+                <filter id="dotGlow">
+                  <feGaussianBlur stdDeviation="2.5" result="b" />
+                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+              <circle cx="200" cy="200" r="110" fill="url(#logoGlow)" />
+              <g class="ag" data-anatomy>
+                <polyline class="al" points="18,18 82,18 155,155" />
+                <line class="al al-tick" x1="18" y1="13" x2="18" y2="23" />
+                <circle class="ad-ring" cx="155" cy="155" r="7" />
+                <circle class="ad-dot" cx="155" cy="155" r="4" filter="url(#dotGlow)" />
+                <circle class="ad-origin" cx="18" cy="18" r="1.5" />
+                <text class="albl" x="28" y="14">Proven Results</text>
+              </g>
+              <g class="ag" data-anatomy>
+                <polyline class="al" points="382,18 318,18 245,155" />
+                <line class="al al-tick" x1="382" y1="13" x2="382" y2="23" />
+                <circle class="ad-ring" cx="245" cy="155" r="7" />
+                <circle class="ad-dot" cx="245" cy="155" r="4" filter="url(#dotGlow)" />
+                <circle class="ad-origin" cx="382" cy="18" r="1.5" />
+                <text class="albl" x="372" y="14" text-anchor="end">Real Partnership</text>
+              </g>
+              <g class="ag" data-anatomy>
+                <polyline class="al" points="18,382 82,382 155,245" />
+                <line class="al al-tick" x1="18" y1="377" x2="18" y2="387" />
+                <circle class="ad-ring" cx="155" cy="245" r="7" />
+                <circle class="ad-dot" cx="155" cy="245" r="4" filter="url(#dotGlow)" />
+                <circle class="ad-origin" cx="18" cy="382" r="1.5" />
+                <text class="albl" x="28" y="400">Total Transparency</text>
+              </g>
+              <g class="ag" data-anatomy>
+                <polyline class="al" points="382,382 318,382 245,245" />
+                <line class="al al-tick" x1="382" y1="377" x2="382" y2="387" />
+                <circle class="ad-ring" cx="245" cy="245" r="7" />
+                <circle class="ad-dot" cx="245" cy="245" r="4" filter="url(#dotGlow)" />
+                <circle class="ad-origin" cx="382" cy="382" r="1.5" />
+                <text class="albl" x="372" y="400" text-anchor="end">Constant Growth</text>
+              </g>
+            </svg>
+          </div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="about-stat-value">2023</span>
+              <span class="about-stat-label">Founded</span>
             </div>
-            <div class="about-mini card" data-animate="fade-up">
-              <h4><i class="fas fa-chart-line" style="color:var(--color-accent-cyan)" aria-hidden="true"></i> Approach</h4>
-              <p>Data-driven strategy combined with cutting-edge design and development.</p>
+            <div class="about-stat">
+              <span class="about-stat-value" data-count="50" data-suffix="+">0</span>
+              <span class="about-stat-label">Projects</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-value" data-count="30" data-suffix="+">0</span>
+              <span class="about-stat-label">Clients</span>
             </div>
           </div>
           <a href="#portfolio" class="btn-secondary">View Our Work <i class="fas fa-arrow-right" aria-hidden="true"></i></a>

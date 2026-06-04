@@ -20,6 +20,9 @@
       document.querySelectorAll('.skill-bar-fill[data-width]').forEach((bar) => {
         bar.style.width = (bar.dataset.width || '100') + '%';
       });
+      document.querySelectorAll('.about-stat-value[data-count]').forEach((el) => {
+        el.textContent = (el.dataset.count || '0') + (el.dataset.suffix || '');
+      });
       return;
     }
 
@@ -87,13 +90,53 @@
       });
     }
 
-    gsap.utils.toArray('[data-animate="fade-up"]').forEach((el) => {
-      gsap.from(el, {
-        y: 24,
-        opacity: 0,
-        duration: 0.5,
+    // About section — visual reveal + content stagger
+    const about = document.querySelector('#about');
+    if (about) {
+      const aboutTl = gsap.timeline({
+        scrollTrigger: { trigger: about, start: 'top 80%', once: true },
+        defaults: { ease: 'power3.out', duration: 0.5 }
+      });
+      const aboutLabel = about.querySelector('.section-label');
+      const aboutHeading = about.querySelector('h2');
+      const aboutText = about.querySelector('p');
+      const aboutStats = about.querySelector('.about-stats');
+      const aboutBtn = about.querySelector('.btn-secondary');
+      const anatomyContainer = about.querySelector('[data-anatomy-container]');
+      const anatomyItems = anatomyContainer ? anatomyContainer.querySelectorAll('[data-anatomy]') : null;
+      aboutTl
+        .from('.about-bg', { scale: 0.92, opacity: 0, duration: 0.6 })
+        .from(aboutLabel, { y: -14, opacity: 0 }, '-=0.35')
+        .from(aboutHeading, { y: 20, opacity: 0 }, '-=0.3')
+        .from(aboutText, { y: 14, opacity: 0 }, '-=0.25')
+        .from(aboutStats, { y: 16, opacity: 0 }, '-=0.15')
+        .from(aboutBtn, { y: 12, opacity: 0 }, '-=0.1');
+      if (anatomyItems && anatomyItems.length) {
+        aboutTl.from(anatomyItems, {
+          scale: 0.3,
+          autoAlpha: 0,
+          duration: 0.55,
+          stagger: 0.12,
+          ease: 'back.out(2.5)',
+          clearProps: 'opacity,visibility'
+        }, '-=0.05');
+        aboutTl.eventCallback('onComplete', () => {
+          if (anatomyContainer) anatomyContainer.setAttribute('data-anatomy-revealed', '');
+        });
+      }
+    }
+
+    // About stat counters
+    gsap.utils.toArray('.about-stat-value[data-count]').forEach((el) => {
+      const end = parseFloat(el.dataset.count) || 0;
+      const suffix = el.dataset.suffix || '';
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: end,
+        duration: 1.5,
         ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+        onUpdate() { el.textContent = Math.floor(obj.val) + suffix; }
       });
     });
 
