@@ -6,7 +6,6 @@
 
   const html = document.documentElement;
   const header = document.querySelector('.site-header');
-  let lastScroll = 0;
 
   /* Theme */
   function applyTheme(theme) {
@@ -40,17 +39,7 @@
 
   initTheme();
 
-  /* Header hide on scroll */
-  window.addEventListener(
-    'scroll',
-    () => {
-      const y = window.scrollY;
-      if (y > lastScroll && y > 120) header?.classList.add('is-hidden');
-      else header?.classList.remove('is-hidden');
-      lastScroll = y;
-    },
-    { passive: true }
-  );
+  /* Header is fixed — always visible */
 
   /* Language dropdown */
   const langBtn = document.getElementById('language-toggle');
@@ -257,6 +246,158 @@ if (mobileLangToggle && mobileLangDropdown) {
     }
   });
 }
+  /* Services showcase carousel */
+  (function servicesCarousel() {
+    const showcase = document.getElementById('services-showcase');
+    if (!showcase) return;
+    const panels = showcase.querySelectorAll('.service-panel');
+    const total = panels.length;
+    if (total < 2) return;
+    const dots = document.querySelectorAll('.showcase-dot');
+    let current = 0;
+    let timer = null;
+    let activeTl = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function killPanelAnims(index) {
+      if (typeof gsap === 'undefined') return;
+      const panel = panels[index];
+      if (!panel) return;
+      gsap.killTweensOf(panel.querySelectorAll('.showcase-svg *'));
+      panel.querySelectorAll('.showcase-svg [opacity="0"]').forEach(function (el) { el.style.opacity = '0'; });
+      panel.querySelectorAll('.showcase-svg [stroke-dashoffset]').forEach(function (el) { el.style.strokeDashoffset = ''; });
+    }
+
+    var panelAnims = [
+      /* Panel 0: Browser */
+      function (tl) {
+        var svg = panels[0].querySelector('.browser-svg');
+        if (!svg) return;
+        var cursor = svg.querySelector('.browser-cursor');
+        var click = svg.querySelector('.cursor-click');
+        tl
+          .fromTo(svg.querySelector('.browser-content'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 0.05)
+          .set(cursor, { x: 188, y: 14, autoAlpha: 1 }, 0.2)
+          .to(cursor, { x: 188, y: 56, duration: 0.45, ease: 'power1.inOut' }, 0.3)
+          .to(cursor, { x: 100, y: 56, duration: 0.35, ease: 'power1.inOut' }, 0.8)
+          .to(cursor, { x: 83, y: 148, duration: 0.5, ease: 'power2.inOut' }, 1.2)
+          .set(click, { x: 0, y: 0, autoAlpha: 1, attr: { r: 0 } })
+          .to(click, { attr: { r: 10 }, autoAlpha: 0, duration: 0.35, ease: 'power2.out' }, 1.75);
+      },
+      /* Panel 1: Pen tool */
+      function (tl) {
+        var svg = panels[1].querySelector('.pen-svg');
+        if (!svg) return;
+        var curve = svg.querySelector('.pen-curve');
+        if (curve) {
+          var len = curve.getTotalLength() || 580;
+          curve.style.strokeDasharray = len;
+          curve.style.strokeDashoffset = len;
+        }
+        var pen = svg.querySelector('.pen-tool');
+        var geo = {
+          circle: svg.querySelector('.pen-geo-circle'),
+          rect: svg.querySelector('.pen-geo-rect'),
+          tri: svg.querySelector('.pen-geo-triangle'),
+        };
+        var hs = svg.querySelectorAll('.pen-handle-1, .pen-handle-2, .pen-handle-3, .pen-handle-4');
+        var cs = svg.querySelectorAll('.pen-ctrl-1, .pen-ctrl-2, .pen-ctrl-3, .pen-ctrl-4');
+        var as = svg.querySelectorAll('.pen-anchor');
+        ['circle','rect','tri'].forEach(function (k) {
+          var el = geo[k];
+          if (el) {
+            var l = el.getTotalLength ? el.getTotalLength() : ({ circle: 138, rect: 205, tri: 128 })[k];
+            el.style.strokeDasharray = l;
+            el.style.strokeDashoffset = l;
+          }
+        });
+        tl
+          .set(pen, { x: 50, y: 180, autoAlpha: 1 })
+          .to(curve, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, 0.1)
+          .to(pen, { x: 210, y: 130, duration: 0.3, ease: 'power1.inOut' }, 0.15)
+          .to(pen, { x: 320, y: 95, duration: 0.25, ease: 'power1.inOut' }, 0.5)
+          .to(pen, { x: 370, y: 120, duration: 0.2, ease: 'power1.out' }, 0.75)
+          .to(hs, { autoAlpha: 1, duration: 0.2 }, 0.2)
+          .to(cs, { autoAlpha: 1, duration: 0.15 }, 0.3)
+          .to(as, { autoAlpha: 1, duration: 0.1 }, 0.4)
+          .to(svg.querySelector('.pen-fill'), { autoAlpha: 1, duration: 0.3 }, 0.6)
+          .to([hs, cs, as], { autoAlpha: 0, duration: 0.15 }, 0.85)
+          .to(pen, { x: 80, y: 43, duration: 0.3, ease: 'power2.inOut' }, 1.05)
+          .to(geo.circle, { strokeDashoffset: 0, duration: 0.35, ease: 'power2.inOut' }, 1.35)
+          .to(pen, { x: 275, y: 170, duration: 0.2, ease: 'power2.inOut' }, 1.75)
+          .to(geo.rect, { strokeDashoffset: 0, duration: 0.35, ease: 'power2.inOut' }, 1.95)
+          .to(pen, { x: 185, y: 130, duration: 0.2, ease: 'power2.inOut' }, 2.35)
+          .to(geo.tri, { strokeDashoffset: 0, duration: 0.35, ease: 'power2.inOut' }, 2.55)
+          .to(svg.querySelector('.pen-swatches'), { autoAlpha: 1, duration: 0.2 }, 2.75)
+          .to(svg.querySelector('.swatch-active'), { autoAlpha: 1, duration: 0.15 }, 2.95)
+          .to(svg.querySelector('.swatch-glow'), { autoAlpha: 1, scale: 1.4, duration: 0.4, ease: 'power2.out', transformOrigin: '158px 225px' }, 2.95);
+      },
+      /* Panel 2: Chart */
+      function (tl) {
+        var svg = panels[2].querySelector('.chart-svg');
+        if (!svg) return;
+        var trendline = svg.querySelector('.chart-trendline');
+        if (trendline) {
+          trendline.style.strokeDasharray = '320';
+          trendline.style.strokeDashoffset = '320';
+          trendline.style.opacity = '1';
+        }
+        var bars = svg.querySelectorAll('.chart-bar');
+        var stats = svg.querySelectorAll('.stat-card');
+        tl
+          .set(svg.querySelector('.chart-bars'), { autoAlpha: 1 })
+          .to(bars, { autoAlpha: 1, duration: 0.35, stagger: 0.08, ease: 'back.out(1.2)' }, 0.1)
+          .to(svg.querySelectorAll('.chart-dot'), { autoAlpha: 1, duration: 0.25, stagger: 0.08 }, 0.4)
+          .to(svg.querySelectorAll('.chart-label, .chart-hline, .chart-xlabel'), { autoAlpha: 1, duration: 0.25 }, 0.1)
+          .to(svg.querySelector('.chart-axis'), { autoAlpha: 1, duration: 0.3 }, 0.5)
+          .to(trendline, { strokeDashoffset: 0, duration: 0.8, ease: 'power2.out' }, 0.5)
+          .to(svg.querySelectorAll('.trend-dot'), { autoAlpha: 1, duration: 0.25, stagger: 0.1 }, 1.0)
+          .to(svg.querySelector('.chart-trendarrow'), { autoAlpha: 1, duration: 0.25 }, 1.3)
+          .to(svg.querySelector('.chart-growth'), { autoAlpha: 1, duration: 0.4, ease: 'back.out(1.7)' }, 1.4)
+          .to(svg.querySelector('.stats-divider'), { autoAlpha: 1, duration: 0.3 }, 1.6)
+          .to(stats, { autoAlpha: 1, y: -8, duration: 0.4, stagger: 0.1, ease: 'power2.out' }, 1.8)
+          .to(svg.querySelectorAll('.chart-sparkle'), { autoAlpha: 1, scale: 1.5, duration: 0.4, stagger: 0.12, ease: 'power2.out', transformOrigin: 'center' }, 2.2);
+      },
+    ];
+
+    function goTo(index) {
+      if (index === current || !panels[index]) return;
+      if (activeTl && typeof activeTl.kill === 'function') activeTl.kill();
+      killPanelAnims(current);
+      panels[current].classList.remove('active');
+      panels[current].setAttribute('aria-hidden', 'true');
+      current = index;
+      panels[current].classList.add('active');
+      panels[current].removeAttribute('aria-hidden');
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-selected', i === current);
+      });
+      if (!reduceMotion && typeof gsap !== 'undefined' && panelAnims[current]) {
+        activeTl = gsap.timeline();
+        panelAnims[current](activeTl);
+      }
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+
+    function startTimer() { stopTimer(); timer = setInterval(function () { goTo((current + 1) % total); }, 3500); }
+    function stopTimer() { if (timer) { clearInterval(timer); timer = null; } }
+
+    showcase.addEventListener('mouseenter', stopTimer);
+    showcase.addEventListener('mouseleave', startTimer);
+    var dw = document.querySelector('.showcase-dots');
+    if (dw) { dw.addEventListener('mouseenter', stopTimer); dw.addEventListener('mouseleave', startTimer); }
+
+    if (!reduceMotion && typeof gsap !== 'undefined' && panelAnims[0]) {
+      activeTl = gsap.timeline({ delay: 0.8 });
+      panelAnims[0](activeTl);
+    }
+    startTimer();
+  })();
+
   /* Footer year */
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

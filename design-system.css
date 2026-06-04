@@ -181,17 +181,21 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; }
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.75rem;
   font-weight: 600;
+  font-size: 0.95rem;
   color: var(--color-link-primary);
   background: transparent;
   border: 1px solid var(--color-border-glow);
   border-radius: var(--radius-pill);
   text-decoration: none;
-  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
+  transition: transform var(--duration-base) var(--ease-out), background var(--duration-base), color var(--duration-base), border-color var(--duration-base), box-shadow var(--duration-base);
 }
 .btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
   background: rgba(168, 85, 247, 0.12);
   border-color: var(--color-accent);
   color: var(--color-link-hover);

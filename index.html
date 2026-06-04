@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.google.com/recaptcha/; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://i.ibb.co https://*.ibb.co https://www.google.com/recaptcha/; connect-src 'self' https://formspree.io https://www.google.com/recaptcha/; form-action 'self' https://formspree.io; frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; object-src 'none'; base-uri 'self';">
   <title>Devaxio | Web Development & Digital Marketing Agency</title>
   <meta name="description" content="Devaxio - Your trusted partner for web development, digital marketing, and business growth solutions in Safi, Morocco and worldwide.">
@@ -58,9 +58,11 @@
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
   <div class="bg-grid" aria-hidden="true"></div>
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="orb-container" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
 
   <header class="site-header glass">
     <div class="header-inner">
@@ -271,22 +273,242 @@
           <h2>High-Quality <span class="gradient-text">Digital Services</span></h2>
           <p>Web development, marketing, and design—engineered for growth and built for performance.</p>
         </header>
-        <div class="services-grid">
-          <article class="service-card card card-glow" data-animate="fade-up">
-            <div class="service-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
-            <h3>Custom Web Development</h3>
-            <p>Websites, e-commerce, web apps, and CMS solutions tailored to your business goals.</p>
-          </article>
-          <article class="service-card card card-glow" data-animate="fade-up">
-            <div class="service-icon"><i class="fas fa-bullseye" aria-hidden="true"></i></div>
-            <h3>Digital Marketing</h3>
-            <p>SEO, PPC, social media, and content strategies that expand your online reach.</p>
-          </article>
-          <article class="service-card card card-glow" data-animate="fade-up">
-            <div class="service-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
-            <h3>UI/UX Design</h3>
-            <p>Beautiful, intuitive interfaces that elevate experience and drive conversions.</p>
-          </article>
+        <div class="services-showcase" id="services-showcase">
+          <!-- Panel 0: Custom Web Development -->
+          <div class="service-panel active" data-panel="0" aria-hidden="false">
+            <div class="service-panel-visual">
+              <svg class="showcase-svg browser-svg" viewBox="0 0 400 260" aria-hidden="true">
+                <defs>
+                  <linearGradient id="browser-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(99,102,241,0.2)"/>
+                    <stop offset="100%" stop-color="rgba(34,211,238,0.08)"/>
+                  </linearGradient>
+                  <filter id="browser-shadow">
+                    <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="rgba(99,102,241,0.3)"/>
+                  </filter>
+                </defs>
+                <!-- Window body -->
+                <rect class="browser-body" x="20" y="16" width="360" height="228" rx="10" fill="var(--color-bg-elevated)" stroke="rgba(168,85,247,0.2)" stroke-width="1.5" filter="url(#browser-shadow)"/>
+                <!-- Title bar -->
+                <rect class="browser-titlebar" x="20" y="16" width="360" height="38" rx="10" fill="rgba(99,102,241,0.08)"/>
+                <rect class="browser-titlebar-clip" x="20" y="34" width="360" height="20" fill="rgba(99,102,241,0.08)"/>
+                <!-- Window dots -->
+                <circle cx="44" cy="35" r="5" fill="#ff5f57"/>
+                <circle cx="62" cy="35" r="5" fill="#febc2e"/>
+                <circle cx="80" cy="35" r="5" fill="#28c840"/>
+                <!-- URL bar -->
+                <rect class="browser-urlbar" x="110" y="27" width="180" height="16" rx="8" fill="var(--color-bg-deep)" stroke="rgba(168,85,247,0.15)" stroke-width="1"/>
+                <!-- Lock icon -->
+                <path class="browser-lock" d="M156 33 h-2 a1 1 0 0 1 -1 -1 v-1 a1 1 0 0 1 1 -1 h5 a1 1 0 0 1 1 1 v1 a1 1 0 0 1 -1 1 h-2 m-1 0 v0.8 a0.5 0.5 0 0 0 0.5 0.5 h2 a0.5 0.5 0 0 0 0.5 -0.5 v-0.8" fill="none" stroke="rgba(34,211,238,0.7)" stroke-width="1.2"/>
+                <!-- URL text -->
+                <text class="browser-urltext" x="200" y="39" text-anchor="middle" fill="var(--color-text-secondary)" font-size="8" font-family="monospace" letter-spacing="0.5">devaxio.com</text>
+                <!-- Content area -->
+                <g class="browser-content" opacity="0">
+                  <rect x="40" y="76" width="160" height="12" rx="3" fill="rgba(168,85,247,0.25)"/>
+                  <rect x="40" y="100" width="310" height="7" rx="2" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="40" y="114" width="280" height="7" rx="2" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="40" y="128" width="300" height="7" rx="2" fill="rgba(255,255,255,0.06)"/>
+                  <rect class="browser-btn" x="40" y="156" width="110" height="30" rx="15" fill="url(#browser-glow)" stroke="rgba(99,102,241,0.4)" stroke-width="1"/>
+                  <text x="95" y="176" text-anchor="middle" fill="var(--color-accent-cyan)" font-size="9" font-family="var(--font-sans)" font-weight="600">Get Started</text>
+                  <!-- Card mockups -->
+                  <rect x="40" y="200" width="90" height="26" rx="4" fill="rgba(99,102,241,0.08)" stroke="rgba(168,85,247,0.12)" stroke-width="0.5"/>
+                  <rect x="140" y="200" width="90" height="26" rx="4" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.12)" stroke-width="0.5"/>
+                  <rect x="240" y="200" width="90" height="26" rx="4" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.12)" stroke-width="0.5"/>
+                </g>
+                <!-- Cursor -->
+                <g class="browser-cursor" opacity="0">
+                  <path class="cursor-arrow" d="M0,0 L0,18 L5,13 L10,18 L11,17 L6,12 L12,11 Z" fill="rgba(255,255,255,0.85)" stroke="rgba(168,85,247,0.3)" stroke-width="0.5"/>
+                  <circle class="cursor-click" cx="12" cy="11" r="0" fill="none" stroke="rgba(34,211,238,0.6)" stroke-width="1.5" opacity="0"/>
+                </g>
+              </svg>
+            </div>
+            <div class="service-panel-content">
+              <div class="service-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+              <h3>Custom <span class="gradient-text">Web Development</span></h3>
+              <p>Websites, e-commerce, web apps, and CMS solutions tailored to your business goals.</p>
+            </div>
+          </div>
+
+          <!-- Panel 1: UI/UX Design -->
+          <div class="service-panel" data-panel="1" aria-hidden="true">
+            <div class="service-panel-visual">
+              <svg class="showcase-svg pen-svg" viewBox="0 0 400 260" aria-hidden="true">
+                <defs>
+                  <linearGradient id="pen-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a855f7"/>
+                    <stop offset="50%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#22d3ee"/>
+                  </linearGradient>
+                  <linearGradient id="shape-fill-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(168,85,247,0.25)"/>
+                    <stop offset="100%" stop-color="rgba(34,211,238,0.15)"/>
+                  </linearGradient>
+                </defs>
+                <!-- Grid background -->
+                <pattern id="grid-pen" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(99,102,241,0.06)" stroke-width="0.5"/>
+                </pattern>
+                <rect width="400" height="260" fill="url(#grid-pen)"/>
+                <!-- Bezier curve being drawn -->
+                <path class="pen-curve" d="M 50,180 C 120,60 180,200 250,100 C 300,30 340,160 370,120" fill="none" stroke="url(#pen-gradient)" stroke-width="3" stroke-linecap="round" stroke-dasharray="580" stroke-dashoffset="580"/>
+                <!-- Shape fill (appears after stroke) -->
+                <path class="pen-fill" d="M 50,180 C 120,60 180,200 250,100 C 300,30 340,160 370,120 L 370,210 L 50,210 Z" fill="url(#shape-fill-grad)" opacity="0"/>
+                <!-- Control handles (dashed lines from anchor to control points) -->
+                <line class="pen-handle-1" x1="50" y1="180" x2="120" y2="60" stroke="rgba(34,211,238,0.2)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0"/>
+                <line class="pen-handle-2" x1="250" y1="100" x2="300" y2="30" stroke="rgba(34,211,238,0.2)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0"/>
+                <line class="pen-handle-3" x1="250" y1="100" x2="180" y2="200" stroke="rgba(168,85,247,0.2)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0"/>
+                <line class="pen-handle-4" x1="370" y1="120" x2="340" y2="160" stroke="rgba(168,85,247,0.2)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0"/>
+                <!-- Control point indicators -->
+                <circle class="pen-ctrl-1" cx="120" cy="60" r="4" fill="rgba(34,211,238,0.5)" stroke="rgba(34,211,238,0.3)" stroke-width="1" opacity="0"/>
+                <circle class="pen-ctrl-2" cx="300" cy="30" r="4" fill="rgba(34,211,238,0.5)" stroke="rgba(34,211,238,0.3)" stroke-width="1" opacity="0"/>
+                <circle class="pen-ctrl-3" cx="180" cy="200" r="4" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.2)" stroke-width="1" opacity="0"/>
+                <circle class="pen-ctrl-4" cx="340" cy="160" r="4" fill="rgba(168,85,247,0.4)" stroke="rgba(168,85,247,0.2)" stroke-width="1" opacity="0"/>
+                <!-- Anchor points -->
+                <circle class="pen-anchor" cx="50" cy="180" r="3" fill="#22d3ee" opacity="0"/>
+                <circle class="pen-anchor" cx="250" cy="100" r="3" fill="#a855f7" opacity="0"/>
+                <circle class="pen-anchor" cx="370" cy="120" r="3" fill="#22d3ee" opacity="0"/>
+                <!-- Geometric shapes drawn by the pen -->
+                <circle class="pen-geo-circle" cx="80" cy="65" r="22" fill="none" stroke="url(#pen-gradient)" stroke-width="2" stroke-dasharray="138" stroke-dashoffset="138" opacity="0"/>
+                <rect class="pen-geo-rect" x="275" y="170" width="70" height="48" rx="8" fill="none" stroke="url(#pen-gradient)" stroke-width="2" stroke-dasharray="205" stroke-dashoffset="205" opacity="0"/>
+                <polygon class="pen-geo-triangle" points="150,185 185,130 220,185" fill="none" stroke="url(#pen-gradient)" stroke-width="2" stroke-dasharray="128" stroke-dashoffset="128" opacity="0"/>
+                <!-- Pen tool (Font Awesome fa-pen icon) -->
+                <g class="pen-tool" opacity="0">
+                  <g transform="scale(0.035) translate(-10, -510)">
+                    <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z" fill="#f4f4ff" stroke="rgba(168,85,247,0.5)" stroke-width="24" stroke-linejoin="round"/>
+                  </g>
+                </g>
+                <!-- Color swatches -->
+                <g class="pen-swatches" opacity="0">
+                  <circle class="swatch" cx="110" cy="225" r="12" fill="#a855f7" stroke="rgba(168,85,247,0.3)" stroke-width="1.5"/>
+                  <circle class="swatch" cx="158" cy="225" r="12" fill="#22d3ee" stroke="rgba(34,211,238,0.3)" stroke-width="1.5"/>
+                  <circle class="swatch" cx="206" cy="225" r="12" fill="#ec4899" stroke="rgba(236,72,153,0.3)" stroke-width="1.5"/>
+                  <circle class="swatch" cx="254" cy="225" r="12" fill="#6366f1" stroke="rgba(99,102,241,0.3)" stroke-width="1.5"/>
+                  <circle class="swatch-active" cx="158" cy="225" r="12" fill="#22d3ee" stroke="#22d3ee" stroke-width="2" opacity="0"/>
+                </g>
+                <!-- Glow on selected swatch -->
+                <circle class="swatch-glow" cx="158" cy="225" r="18" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0"/>
+              </svg>
+            </div>
+            <div class="service-panel-content">
+              <div class="service-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
+              <h3><span class="gradient-text">UI/UX</span> Design</h3>
+              <p>Beautiful, intuitive interfaces that elevate experience and drive conversions.</p>
+            </div>
+          </div>
+
+          <!-- Panel 2: Digital Marketing -->
+          <div class="service-panel" data-panel="2" aria-hidden="true">
+            <div class="service-panel-visual">
+              <svg class="showcase-svg chart-svg" viewBox="0 0 400 310" aria-hidden="true">
+                <defs>
+                  <linearGradient id="bar-grad-1" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="rgba(168,85,247,0.3)"/>
+                    <stop offset="100%" stop-color="#a855f7"/>
+                  </linearGradient>
+                  <linearGradient id="bar-grad-2" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="rgba(99,102,241,0.3)"/>
+                    <stop offset="100%" stop-color="#6366f1"/>
+                  </linearGradient>
+                  <linearGradient id="bar-grad-3" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="rgba(34,211,238,0.3)"/>
+                    <stop offset="100%" stop-color="#22d3ee"/>
+                  </linearGradient>
+                  <linearGradient id="bar-grad-4" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="rgba(236,72,153,0.3)"/>
+                    <stop offset="100%" stop-color="#ec4899"/>
+                  </linearGradient>
+                  <linearGradient id="trend-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#a855f7"/>
+                    <stop offset="50%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#22d3ee"/>
+                  </linearGradient>
+                </defs>
+                <!-- Background grid -->
+                <pattern id="chart-grid" width="40" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 30" fill="none" stroke="rgba(99,102,241,0.06)" stroke-width="0.5"/>
+                </pattern>
+                <rect class="chart-bg" width="400" height="310" fill="url(#chart-grid)" rx="10"/>
+                <!-- Baseline axis -->
+                <line class="chart-axis" x1="40" y1="200" x2="360" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="1" opacity="0"/>
+                <!-- Y-axis labels -->
+                <text class="chart-label" x="45" y="200" text-anchor="end" fill="var(--color-text-muted)" font-size="8" opacity="0">800</text>
+                <text class="chart-label" x="45" y="155" text-anchor="end" fill="var(--color-text-muted)" font-size="8" opacity="0">600</text>
+                <text class="chart-label" x="45" y="110" text-anchor="end" fill="var(--color-text-muted)" font-size="8" opacity="0">400</text>
+                <!-- Horizontal grid lines -->
+                <line class="chart-hline" x1="55" y1="200" x2="340" y2="200" stroke="rgba(99,102,241,0.1)" stroke-width="0.5" stroke-dasharray="3 4" opacity="0"/>
+                <line class="chart-hline" x1="55" y1="155" x2="340" y2="155" stroke="rgba(99,102,241,0.1)" stroke-width="0.5" stroke-dasharray="3 4" opacity="0"/>
+                <line class="chart-hline" x1="55" y1="110" x2="340" y2="110" stroke="rgba(99,102,241,0.1)" stroke-width="0.5" stroke-dasharray="3 4" opacity="0"/>
+                <!-- Bars -->
+                <g class="chart-bars" opacity="0">
+                  <rect class="chart-bar" x="55" y="155" width="30" height="45" rx="4" fill="url(#bar-grad-1)" opacity="0"/>
+                  <rect class="chart-bar" x="135" y="125" width="30" height="75" rx="4" fill="url(#bar-grad-2)" opacity="0"/>
+                  <rect class="chart-bar" x="215" y="95" width="30" height="105" rx="4" fill="url(#bar-grad-3)" opacity="0"/>
+                  <rect class="chart-bar" x="295" y="70" width="30" height="130" rx="4" fill="url(#bar-grad-4)" opacity="0"/>
+                </g>
+                <!-- Glow dots on top of bars -->
+                <circle class="chart-dot" cx="70" cy="155" r="3.5" fill="#a855f7" opacity="0"/>
+                <circle class="chart-dot" cx="150" cy="125" r="3.5" fill="#6366f1" opacity="0"/>
+                <circle class="chart-dot" cx="230" cy="95" r="3.5" fill="#22d3ee" opacity="0"/>
+                <circle class="chart-dot" cx="310" cy="70" r="3.5" fill="#ec4899" opacity="0"/>
+                <!-- X-axis labels -->
+                <text class="chart-xlabel" x="70" y="216" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" opacity="0">Q1</text>
+                <text class="chart-xlabel" x="150" y="216" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" opacity="0">Q2</text>
+                <text class="chart-xlabel" x="230" y="216" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" opacity="0">Q3</text>
+                <text class="chart-xlabel" x="310" y="216" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" opacity="0">Q4</text>
+                <!-- Trend line -->
+                <polyline class="chart-trendline" points="70,145 150,115 230,85 310,60 345,45" fill="none" stroke="url(#trend-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="320" stroke-dashoffset="320" opacity="0"/>
+                <!-- Trend line data dots -->
+                <circle class="trend-dot" cx="70" cy="145" r="3" fill="#a855f7" stroke="rgba(168,85,247,0.3)" stroke-width="1.5" opacity="0"/>
+                <circle class="trend-dot" cx="150" cy="115" r="3" fill="#6366f1" stroke="rgba(99,102,241,0.3)" stroke-width="1.5" opacity="0"/>
+                <circle class="trend-dot" cx="230" cy="85" r="3" fill="#22d3ee" stroke="rgba(34,211,238,0.3)" stroke-width="1.5" opacity="0"/>
+                <circle class="trend-dot" cx="310" cy="60" r="3" fill="#ec4899" stroke="rgba(236,72,153,0.3)" stroke-width="1.5" opacity="0"/>
+                <!-- Trend arrow -->
+                <polygon class="chart-trendarrow" points="345,45 337,53 349,52" fill="#22d3ee" opacity="0"/>
+                <!-- Growth indicator -->
+                <g class="chart-growth" opacity="0">
+                  <text x="205" y="35" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700" font-family="var(--font-sans)">+156%</text>
+                  <path d="M188,46 L205,30 L222,46" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <!-- Sparkle particles -->
+                <circle class="chart-sparkle" cx="315" cy="55" r="2" fill="#22d3ee" opacity="0"/>
+                <circle class="chart-sparkle" cx="240" cy="75" r="1.5" fill="#a855f7" opacity="0"/>
+                <circle class="chart-sparkle" cx="335" cy="40" r="1.5" fill="#6366f1" opacity="0"/>
+                <!-- Stats separator -->
+                <line class="stats-divider" x1="55" y1="228" x2="345" y2="228" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" opacity="0"/>
+                <!-- Mock success stats -->
+                <g class="chart-stats">
+                  <!-- ROI -->
+                  <g class="stat-card" opacity="0">
+                    <rect x="42" y="238" width="92" height="42" rx="6" fill="var(--color-bg-elevated)" stroke="rgba(168,85,247,0.12)" stroke-width="1"/>
+                    <text x="88" y="254" text-anchor="middle" fill="var(--color-text-muted)" font-size="7" font-family="var(--font-sans)">ROI</text>
+                    <text x="88" y="271" text-anchor="middle" fill="#a855f7" font-size="13" font-weight="700" font-family="var(--font-sans)">+340%</text>
+                  </g>
+                  <!-- Conversion -->
+                  <g class="stat-card" opacity="0">
+                    <rect x="154" y="238" width="92" height="42" rx="6" fill="var(--color-bg-elevated)" stroke="rgba(34,211,238,0.12)" stroke-width="1"/>
+                    <text x="200" y="254" text-anchor="middle" fill="var(--color-text-muted)" font-size="7" font-family="var(--font-sans)">Conversion</text>
+                    <text x="200" y="271" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700" font-family="var(--font-sans)">28.4%</text>
+                  </g>
+                  <!-- Revenue -->
+                  <g class="stat-card" opacity="0">
+                    <rect x="266" y="238" width="92" height="42" rx="6" fill="var(--color-bg-elevated)" stroke="rgba(236,72,153,0.12)" stroke-width="1"/>
+                    <text x="312" y="254" text-anchor="middle" fill="var(--color-text-muted)" font-size="7" font-family="var(--font-sans)">Revenue</text>
+                    <text x="312" y="271" text-anchor="middle" fill="#ec4899" font-size="13" font-weight="700" font-family="var(--font-sans)">$2.4M</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="service-panel-content">
+              <div class="service-icon"><i class="fas fa-bullseye" aria-hidden="true"></i></div>
+              <h3>Digital <span class="gradient-text">Marketing</span></h3>
+              <p>SEO, PPC, social media, and content strategies that expand your online reach.</p>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-dots" role="tablist" aria-label="Services">
+          <button class="showcase-dot active" role="tab" aria-selected="true" aria-label="Custom Web Development" data-index="0"></button>
+          <button class="showcase-dot" role="tab" aria-selected="false" aria-label="UI/UX Design" data-index="1"></button>
+          <button class="showcase-dot" role="tab" aria-selected="false" aria-label="Digital Marketing" data-index="2"></button>
         </div>
         <div class="cta-row">
           <a href="#contact" class="btn-primary">Free Consultation</a>

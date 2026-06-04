@@ -12,12 +12,18 @@
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
 }
 
-.orb {
+.orb-container {
   position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb {
+  position: absolute;
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
-  z-index: 0;
 }
 .orb-1 { width: 420px; height: 420px; top: -120px; right: -80px; background: rgba(168, 85, 247, 0.35); }
 .orb-2 { width: 320px; height: 320px; bottom: 20%; left: -100px; background: rgba(34, 211, 238, 0.2); }
@@ -32,6 +38,8 @@
   height: var(--header-h);
   display: flex;
   align-items: center;
+  padding-left: max(env(safe-area-inset-left, 0px), var(--space-sm));
+  padding-right: max(env(safe-area-inset-right, 0px), var(--space-sm));
   transition: transform 0.4s var(--ease-out), background 0.3s;
 }
 .site-header.is-hidden { transform: translateY(-100%); }
@@ -338,6 +346,11 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding-left: max(env(safe-area-inset-left, 0px), var(--space-sm));
+  padding-right: max(env(safe-area-inset-right, 0px), var(--space-sm));
+}
+[data-laser-engrave] .container {
+  overflow: hidden;
 }
 
 section {
@@ -453,7 +466,9 @@ section {
   align-items: center;
   width: var(--container);
   margin: 0 auto;
-  padding: var(--space-lg) 0 var(--space-md);
+  padding: var(--space-lg) var(--space-sm) var(--space-md);
+  padding-left: max(env(safe-area-inset-left, 0px), var(--space-sm));
+  padding-right: max(env(safe-area-inset-right, 0px), var(--space-sm));
 }
 
 .hero-badge {
@@ -828,6 +843,103 @@ section {
 .service-card p { color: var(--color-text-secondary); margin-top: var(--space-sm); font-size: 0.95rem; }
 .cta-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; margin-top: var(--space-xl); }
 
+/* Services showcase — animated carousel */
+.services-showcase {
+  position: relative;
+  min-height: 300px;
+}
+.service-panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.service-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+.service-panel-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.showcase-svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+.service-panel-content {
+  text-align: center;
+}
+/* Showcase navigation dots */
+.showcase-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+.showcase-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border-glow);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  padding: 0;
+}
+.showcase-dot.active {
+  background: var(--color-accent-cyan);
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+}
+.showcase-dot:focus-visible {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 2px;
+}
+
+.service-panel-content h3 {
+  margin-top: var(--space-sm);
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+.service-panel-content p {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-sm);
+  font-size: 0.95rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .services-showcase {
+    min-height: 320px;
+  }
+  .service-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-panel.active {
+    position: absolute;
+  }
+  .service-panel-content {
+    text-align: left;
+  }
+  .service-panel-content p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .showcase-svg {
+    max-width: 400px;
+  }
+}
+
 /* About */
 .about-split {
   display: grid;
@@ -1088,4 +1200,16 @@ section {
 
 @media (max-width: 767px) {
   .header-cta-text { display: none; }
+}
+
+/* Scroll progress bar — services page */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-cyan));
+  z-index: 999;
+  pointer-events: none;
 }
