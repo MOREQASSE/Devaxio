@@ -1230,6 +1230,30 @@ section {
   transition: all var(--duration-fast);
 }
 .social-row a:hover { background: var(--gradient-btn); color: #fff; border-color: transparent; }
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: var(--radius-md);
+  background: var(--gradient-btn);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-out);
+}
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  color: #fff;
+}
+.btn-whatsapp i {
+  font-size: 1.35rem;
+}
 
 /* Newsletter */
 .newsletter {
@@ -1302,6 +1326,8 @@ section {
   .portfolio-card { grid-template-columns: 1fr 1fr; }
   .portfolio-card .portfolio-img { aspect-ratio: auto; min-height: 100%; }
   .contact-split { grid-template-columns: 1fr 1fr; }
+  .contact-split > .contact-form-panel { order: 1; }
+  .contact-split > .contact-info-panel { order: 2; }
   .tech-layout { grid-template-columns: 1.2fr 1fr; }
   .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
 }
