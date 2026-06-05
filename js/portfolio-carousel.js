@@ -120,10 +120,12 @@
   var prevBtn = document.getElementById('prev-project');
   var nextBtn = document.getElementById('next-project');
   var wrap = document.querySelector('.portfolio-showcase');
+  var screen = document.querySelector('.laptop-screen');
 
   var current = 0;
   var timer = null;
   var paused = false;
+  var animating = false;
 
   // Transparent placeholder to avoid empty src
   var PLACEHOLDER = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10"%3E%3C/svg%3E';
@@ -189,8 +191,22 @@
 
   function goTo(index) {
     index = ((index % TOTAL) + TOTAL) % TOTAL;
-    if (index === current) return;
-    render(index);
+    if (index === current || animating) return;
+
+    animating = true;
+    if (screen) {
+      screen.classList.add('closing');
+      setTimeout(function () {
+        render(index);
+        setTimeout(function () {
+          screen.classList.remove('closing');
+          animating = false;
+        }, 80);
+      }, 500);
+    } else {
+      render(index);
+      animating = false;
+    }
   }
 
   if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); restart(); });

@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  perspective: 1000px;
 }
 
 /* Screen (outer bezel) */
@@ -24,6 +25,10 @@
     0 0 0 1px rgba(200, 202, 203, 0.15),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   overflow: hidden;
+  transform-origin: bottom center;
+  backface-visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 0.3, 1);
+  will-change: transform;
 }
 
 /* Inner display area */
@@ -126,6 +131,19 @@
   border-radius: 16px 16px 0 0;
   z-index: 1;
   pointer-events: none;
+}
+
+.laptop-screen.closing {
+  transform: rotateX(-92deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .laptop-screen {
+    transition: none !important;
+  }
+  .laptop-screen.closing {
+    transform: none !important;
+  }
 }
 
 /* ---- Portfolio Showcase Layout ---- */
