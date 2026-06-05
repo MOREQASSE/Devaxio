@@ -192,7 +192,7 @@
           screen.classList.remove('closing');
           animating = false;
         }, 80);
-      }, 500);
+      }, 600);
     } else {
       render(index);
       animating = false;
