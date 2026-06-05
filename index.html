@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/section-bridges.css">
   <link rel="stylesheet" href="css/laser-engrave.css">
+  <link rel="stylesheet" href="css/laptop-mockup.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -646,113 +647,22 @@
           <h2>Popular <span class="gradient-text">Projects</span></h2>
           <p>Real builds across industries—from restaurants to SaaS platforms.</p>
         </header>
-        <div class="portfolio-track-wrap card glass-strong" data-animate="fade-up">
-          <div id="portfolio-track" class="portfolio-track">
-            <!-- slides generated: 9 projects -->
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/ads studio.webp" alt="Advertising agency website" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Advertising</span>
-                  <h3>Modern Advertising Studio</h3>
-                  <p>3D-inspired agency site with smooth animations and a premium dark theme.</p>
-                  <div class="portfolio-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GSAP</span></div>
-                  <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
-                    <a href="https://moreqasse.github.io/ads-studio-website" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                    <a href="#contact" class="project-link project-link-secondary">Get Similar</a>
-                  </div>
-                </div>
+        <div class="portfolio-showcase" data-animate="fade-up">
+          <div class="laptop-mockup">
+            <div class="laptop-screen">
+              <div class="laptop-notch"></div>
+              <div class="laptop-display">
+                <img id="pj-img" src="" alt="" loading="lazy">
               </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/frial.webp" alt="Restaurant website" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Hospitality</span>
-                  <h3>Frial Café &amp; Resto</h3>
-                  <p>Menu, gallery, reviews integration, and loyalty features for a restaurant brand.</p>
-                  <div class="portfolio-tags"><span class="tag">Tailwind</span><span class="tag">Maps API</span></div>
-                  <a href="https://moreqasse.github.io/FrialCafeResto/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/LuxSite.webp" alt="E-commerce fashion" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">E-commerce</span>
-                  <h3>Luxury Fashion Store</h3>
-                  <p>High-end storefront with filters and seamless checkout experience.</p>
-                  <a href="https://stylehub-commerce-0593l18.public.builtwithrocket.new/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/CMS.webp" alt="ClientFlow CMS" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">SaaS</span>
-                  <h3>ClientFlow CMS</h3>
-                  <p>Client management with roles, projects, invoicing, and reporting.</p>
-                  <a href="https://clientflow-cms-e75il93.public.builtwithrocket.new/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/Optician.webp" alt="Optician website" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Healthcare retail</span>
-                  <h3>Nadar Optique</h3>
-                  <p>Responsive optician site showcasing services and brand trust.</p>
-                  <a href="https://moreqasse.github.io/Nadar-Optique/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/pharma.webp" alt="Pharmacy inventory" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">SaaS</span>
-                  <h3>Pharmacy Inventory Tracker</h3>
-                  <p>Stock tracking, expiration alerts, and compliance-focused workflows.</p>
-                  <a href="https://pharmacy-inventory-fmm7o80.public.builtwithrocket.new/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/AccountingSaas.webp" alt="Accounting SaaS" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Finance SaaS</span>
-                  <h3>Accounting Platform</h3>
-                  <p>Dashboards, transactions, reports, and client portal in one suite.</p>
-                  <a href="https://accounting-c7dm002.public.builtwithrocket.new/financial-reports" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/Consulation.webp" alt="Agency consultation" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Agency</span>
-                  <h3>Consultation &amp; Contact Hub</h3>
-                  <p>Secure forms, scheduling, and polished client engagement flows.</p>
-                  <a href="https://agency-j5p5223.public.builtwithrocket.new/" class="project-link project-link-primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                </div>
-              </div>
-            </article>
-            <article class="portfolio-slide">
-              <div class="portfolio-card card-glow">
-                <div class="portfolio-img"><img src="images/GetinTouch.webp" alt="Custom project" loading="lazy" width="800" height="500"></div>
-                <div class="portfolio-body">
-                  <span class="tag">Your idea</span>
-                  <h3>Let's Build Your Vision</h3>
-                  <p>Brand identity, web design, maintenance, SEO, and ads—we shape ideas into products.</p>
-                  <a href="#contact" class="btn-primary">Let's Talk Business</a>
-                </div>
-              </div>
-            </article>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag" id="pj-tag"></span>
+            <h3 class="project-title" id="pj-title"></h3>
+            <p class="project-desc" id="pj-desc"></p>
+            <div class="project-techs" id="pj-techs"></div>
+            <div class="project-links" id="pj-links"></div>
           </div>
         </div>
         <div class="portfolio-controls">
@@ -985,6 +895,7 @@
     </div>
   </footer>
 
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -992,5 +903,6 @@
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/section-bridges.js" defer></script>
   <script src="js/laser-engrave.js" defer></script>
+  <script src="js/portfolio-carousel.js" defer></script>
 </body>
 </html>

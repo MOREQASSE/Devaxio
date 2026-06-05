@@ -88,36 +88,7 @@
   window.addEventListener('scroll', setActiveNav, { passive: true });
   setActiveNav();
 
-  /* Portfolio carousel */
-  const track = document.getElementById('portfolio-track');
-  const dots = document.querySelectorAll('.portfolio-dot');
-  const prevBtn = document.getElementById('prev-project');
-  const nextBtn = document.getElementById('next-project');
-  let slide = 0;
-
-  function getSlideCount() {
-    return track ? track.children.length : 0;
-  }
-
-  function goTo(index) {
-    const total = getSlideCount();
-    if (!total || !track) return;
-    slide = ((index % total) + total) % total;
-    track.style.transform = `translateX(-${slide * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === slide));
-  }
-
-  prevBtn?.addEventListener('click', () => goTo(slide - 1));
-  nextBtn?.addEventListener('click', () => goTo(slide + 1));
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
-  });
-
-  let carouselTimer = setInterval(() => goTo(slide + 1), 8000);
-  track?.closest('.portfolio-track-wrap')?.addEventListener('mouseenter', () => clearInterval(carouselTimer));
-  track?.closest('.portfolio-track-wrap')?.addEventListener('mouseleave', () => {
-    carouselTimer = setInterval(() => goTo(slide + 1), 8000);
-  });
+  /* Portfolio carousel — handled by js/portfolio-carousel.js */
 
   /* Tech filter */
   const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
