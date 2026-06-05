@@ -3,6 +3,18 @@
 
   var projects = [
     {
+      tag: 'Éducation',
+      title: "Club d'Échecs ENSA",
+      desc: "Plateforme complète pour le club d'échecs de l'ENSA Safi — tournois, formations, puzzles interactifs, classements, annonces, produits, mur de messages publics et un tableau de bord administrateur.",
+      techs: ['PHP', 'SQLite', 'API Lichess', 'Vite'],
+      links: [
+        { label: 'Démo en direct', url: 'https://chessclubensas.com', primary: true },
+        { label: 'Projet similaire', url: '#contact', primary: false }
+      ],
+      image: 'images/chessclub.png',
+      alt: "Site du Club d'Échecs ENSA"
+    },
+    {
       tag: 'Publicité',
       title: 'Agence de Publicité Moderne',
       desc: 'Site d\'agence inspiré du 3D avec animations fluides et thème sombre premium.',

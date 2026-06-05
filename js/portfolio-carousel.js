@@ -7,6 +7,18 @@
 
   var projects = [
     {
+      tag: 'Education',
+      title: 'ENSA Chess Club',
+      desc: 'Full-featured platform for the ENSA Safi chess club — tournaments, formations, interactive puzzles, leaderboards, announcements, products, public message wall, and an admin dashboard.',
+      techs: ['PHP', 'SQLite', 'Lichess API', 'Vite'],
+      links: [
+        { label: 'Live Demo', url: 'https://chessclubensas.com', primary: true },
+        { label: 'Get Similar', url: '#contact', primary: false }
+      ],
+      image: 'images/chessclub.png',
+      alt: 'ENSA Chess Club website'
+    },
+    {
       tag: 'Advertising',
       title: 'Modern Advertising Studio',
       desc: '3D-inspired agency site with smooth animations and a premium dark theme.',
