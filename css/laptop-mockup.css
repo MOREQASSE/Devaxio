@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  perspective: 1000px;
+  perspective: 4000px;
 }
 
 /* Screen (outer bezel) */
