@@ -7,16 +7,16 @@
 
   var projects = [
     {
-      tag: 'Education',
-      title: 'ENSA Chess Club',
-      desc: 'Full-featured platform for the ENSA Safi chess club — tournaments, formations, interactive puzzles, leaderboards, announcements, products, public message wall, and an admin dashboard.',
-      techs: ['PHP', 'SQLite', 'Lichess API', 'Vite'],
+      tag: 'Healthcare retail',
+      title: 'Optician Dynamic Website',
+      desc: 'All-in-one optician store built for total administrative control. Powered by PHP, PHPMailer, SQLite, and Gmail SMTP, the platform lets the admin change writing, colors, fonts, toggle options, and manage workflows — all with zero code or technical knowledge. Features include product management, a loyalty system, appointments, messaging, order management, and user accounts.',
+      techs: ['PHP', 'PHPMailer', 'SQLite', 'Gmail SMTP'],
       links: [
-        { label: 'Live Demo', url: 'https://chessclubensas.com', primary: true },
+        { label: 'Live Demo', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true },
         { label: 'Get Similar', url: '#contact', primary: false }
       ],
-      image: 'images/chessclub.png',
-      alt: 'ENSA Chess Club website'
+      image: 'images/Optician.webp',
+      alt: 'Optician Dynamic Website — all-in-one optician store'
     },
     {
       tag: 'Advertising',
@@ -62,17 +62,6 @@
       ],
       image: 'images/CMS.webp',
       alt: 'ClientFlow CMS'
-    },
-    {
-      tag: 'Healthcare retail',
-      title: 'Nadar Optique',
-      desc: 'Responsive optician site showcasing services and brand trust.',
-      techs: [],
-      links: [
-        { label: 'Live Demo', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true }
-      ],
-      image: 'images/Optician.webp',
-      alt: 'Optician website'
     },
     {
       tag: 'SaaS',

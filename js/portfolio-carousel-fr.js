@@ -3,16 +3,16 @@
 
   var projects = [
     {
-      tag: 'Éducation',
-      title: "Club d'Échecs ENSA",
-      desc: "Plateforme complète pour le club d'échecs de l'ENSA Safi — tournois, formations, puzzles interactifs, classements, annonces, produits, mur de messages publics et un tableau de bord administrateur.",
-      techs: ['PHP', 'SQLite', 'API Lichess', 'Vite'],
+      tag: 'Optique',
+      title: 'Siteweb Optician Dynamique',
+      desc: "Magasin d'optique tout-en-un conçu pour un contrôle administratif total. Propulsé par PHP, PHPMailer, SQLite et Gmail SMTP, la plateforme permet à l'administrateur de modifier le texte, les couleurs, les polices, d'activer des options et de gérer les flux de travail — sans aucune connaissance technique. Fonctionnalités : gestion des produits, système de fidélité, rendez-vous, messagerie, gestion des commandes et comptes utilisateurs.",
+      techs: ['PHP', 'PHPMailer', 'SQLite', 'Gmail SMTP'],
       links: [
-        { label: 'Démo en direct', url: 'https://chessclubensas.com', primary: true },
+        { label: 'Démo en direct', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true },
         { label: 'Projet similaire', url: '#contact', primary: false }
       ],
-      image: 'images/chessclub.png',
-      alt: "Site du Club d'Échecs ENSA"
+      image: 'images/Optician.webp',
+      alt: "Siteweb Optician Dynamique — Magasin d'optique tout-en-un"
     },
     {
       tag: 'Publicité',
@@ -58,17 +58,6 @@
       ],
       image: 'images/CMS.webp',
       alt: 'ClientFlow CMS'
-    },
-    {
-      tag: 'Optique',
-      title: 'Nadar Optique',
-      desc: "Site d'opticien responsive présentant les services et la confiance de la marque.",
-      techs: [],
-      links: [
-        { label: 'Démo en direct', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true }
-      ],
-      image: 'images/Optician.webp',
-      alt: "Site d'opticien"
     },
     {
       tag: 'SaaS',
