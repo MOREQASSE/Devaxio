@@ -12,7 +12,7 @@
       desc: 'All-in-one optician store built for total administrative control. Powered by PHP, PHPMailer, SQLite, and Gmail SMTP, the platform lets the admin change writing, colors, fonts, toggle options, and manage workflows — all with zero code or technical knowledge. Features include product management, a loyalty system, appointments, messaging, order management, and user accounts.',
       techs: ['PHP', 'PHPMailer', 'SQLite', 'Gmail SMTP'],
       links: [
-        { label: 'Live Demo', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true },
+        { label: 'Live Demo', url: 'https://opticien.ifree.page/', primary: true },
         { label: 'Get Similar', url: '#contact', primary: false }
       ],
       image: 'images/Optician.webp',

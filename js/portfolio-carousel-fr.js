@@ -8,7 +8,7 @@
       desc: "Magasin d'optique tout-en-un conçu pour un contrôle administratif total. Propulsé par PHP, PHPMailer, SQLite et Gmail SMTP, la plateforme permet à l'administrateur de modifier le texte, les couleurs, les polices, d'activer des options et de gérer les flux de travail — sans aucune connaissance technique. Fonctionnalités : gestion des produits, système de fidélité, rendez-vous, messagerie, gestion des commandes et comptes utilisateurs.",
       techs: ['PHP', 'PHPMailer', 'SQLite', 'Gmail SMTP'],
       links: [
-        { label: 'Démo en direct', url: 'https://moreqasse.github.io/Nadar-Optique/', primary: true },
+        { label: 'Démo en direct', url: 'https://opticien.ifree.page/', primary: true },
         { label: 'Projet similaire', url: '#contact', primary: false }
       ],
       image: 'images/Optician.webp',
